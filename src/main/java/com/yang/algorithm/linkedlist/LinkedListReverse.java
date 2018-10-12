@@ -30,18 +30,11 @@ public class LinkedListReverse {
         node1.next = node2;
         node2.next = node3;
         node3.next = node4;
-        print(node1);
+        Node.print(node1);
         Node node = reverse(node1);
-        print(node);
+        Node.print(node);
     }
 
-    public static void print(Node node) {
-        while (node != null) {
-            System.out.print(node.getData() + "->");
-            node = node.next;
-        }
-        System.out.println();
-    }
 }
 
 class Node {
@@ -61,5 +54,13 @@ class Node {
 
     public void setData(int data) {
         this.data = data;
+    }
+
+    public static void print(Node node) {
+        while (node != null) {
+            System.out.print(node.getData() + "->");
+            node = node.next;
+        }
+        System.out.println();
     }
 }
