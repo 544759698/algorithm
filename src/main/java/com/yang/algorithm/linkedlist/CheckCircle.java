@@ -1,5 +1,8 @@
 package com.yang.algorithm.linkedlist;
 
+/**
+ * 链表中检测环
+ */
 public class CheckCircle {
     public static boolean checkCircle(Node head) {
         if (head == null) {
