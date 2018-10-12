@@ -1,5 +1,8 @@
 package com.yang.algorithm.linkedlist;
 
+/**
+ * 合并有序链表
+ */
 public class MergeSorted {
 
     public static Node mergeSorted(Node left, Node right) {
@@ -56,7 +59,7 @@ public class MergeSorted {
         node7.next = node9;
         Node.print(node1);
         Node.print(node2);
-        Node node = mergeSorted(node1,node2);
+        Node node = mergeSorted(node1, node2);
         Node.print(node);
     }
 }
