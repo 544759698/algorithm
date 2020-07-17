@@ -1,4 +1,4 @@
-package com.yang.algorithm.linkedlist;
+package com.yang.practice.linkedlist;
 
 /**
  * 链表中检测环

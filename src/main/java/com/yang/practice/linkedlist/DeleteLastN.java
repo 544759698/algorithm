@@ -1,4 +1,4 @@
-package com.yang.algorithm.linkedlist;
+package com.yang.practice.linkedlist;
 
 /**
  * 删除倒数第N个节点

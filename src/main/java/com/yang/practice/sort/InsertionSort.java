@@ -1,4 +1,4 @@
-package com.yang.algorithm.sort;
+package com.yang.practice.sort;
 
 /**
  * 插入排序

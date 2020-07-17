@@ -1,4 +1,4 @@
-package com.yang.algorithm;
+package com.yang.practice;
 
 /**
  * Created by Administrator on 2018/7/30.

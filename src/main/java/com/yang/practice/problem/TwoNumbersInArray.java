@@ -1,4 +1,4 @@
-package com.yang.algorithm.problem;
+package com.yang.practice.problem;
 
 import java.util.HashMap;
 

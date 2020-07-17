@@ -1,4 +1,4 @@
-package com.yang.algorithm.sort;
+package com.yang.practice.sort;
 
 /**
  * Created by Administrator on 2018/10/17.
