@@ -37,6 +37,7 @@ public class Solution2 {
             return null;
         }
         Stack<Element> stack = new Stack<>();
+        // 0-visit 1-output
         stack.push(new Element(0, node));
         while (!stack.isEmpty()) {
             Element curr = stack.pop();
@@ -56,7 +57,7 @@ public class Solution2 {
 
     public static void main(String[] args) {
         int[] nums = new int[] {1, 2, 3, -1, 4, 5, 6};
-        Solution1 s = new Solution1();
+        Solution2 s = new Solution2();
         Node node = s.buildTree(nums, 0);
         List<Integer> ret = new ArrayList<>();
         s.preOrderTree(node, ret);

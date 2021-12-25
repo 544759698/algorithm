@@ -10,8 +10,10 @@ import java.util.Queue;
 public class Solution {
 
     // TODO:待复习
+
     public int scheduleFlights(int[][][] flights, int from, int to, int k) {
         Queue<int[]> queue = new PriorityQueue<>((a, b) -> Integer.compare(a[0], b[0]));
+        // 价格，出发城市，经停次数（最小值为0，下面判断条件是>0，所以+1）
         queue.add(new int[] {0, from, k + 1});
         while (!queue.isEmpty()) {
             int[] top = queue.remove();
