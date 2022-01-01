@@ -1,4 +1,4 @@
-package com.yang.practice.linkedlist;
+package com.yang.practice.geek.qinchao.lesson06;
 
 /**
  * 求链表的中间结点
@@ -28,9 +28,8 @@ public class MidNode {
         Node node4 = new Node(4);
         node1.next = node2;
         node2.next = node3;
-//        node3.next = node4;
-        Node.print(node1);
+        //        node3.next = node4;
         Node node = findMidNode(node1);
-        System.out.println(node == null ? "null" : node.getData());
+        System.out.println(node == null ? "null" : node.value);
     }
 }

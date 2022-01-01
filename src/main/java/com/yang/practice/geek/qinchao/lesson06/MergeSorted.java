@@ -1,7 +1,7 @@
-package com.yang.practice.linkedlist;
+package com.yang.practice.geek.qinchao.lesson06;
 
 /**
- * 合并有序链表
+ * 合并两个有序链表
  */
 public class MergeSorted {
 
@@ -14,7 +14,7 @@ public class MergeSorted {
         }
 
         Node head;
-        if (left.getData() < right.getData()) {
+        if (left.value < right.value) {
             head = left;
             left = left.next;
         } else {
@@ -23,7 +23,7 @@ public class MergeSorted {
         }
         Node p = head;
         while (left != null && right != null) {
-            if (left.getData() < right.getData()) {
+            if (left.value < right.value) {
                 p.next = left;
                 left = left.next;
             } else {
@@ -57,9 +57,7 @@ public class MergeSorted {
         node5.next = node7;
         node6.next = node8;
         node7.next = node9;
-        Node.print(node1);
-        Node.print(node2);
         Node node = mergeSorted(node1, node2);
-        Node.print(node);
+        System.out.println(node.value);
     }
 }

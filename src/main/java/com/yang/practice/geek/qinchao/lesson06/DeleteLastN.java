@@ -1,4 +1,4 @@
-package com.yang.practice.linkedlist;
+package com.yang.practice.geek.qinchao.lesson06;
 
 /**
  * 删除倒数第N个节点
@@ -35,8 +35,7 @@ public class DeleteLastN {
         node1.next = node2;
         node2.next = node3;
         node3.next = node4;
-        Node.print(node1);
         Node node = deleteLastN(node1, 3);
-        Node.print(node1);
+        System.out.println(node.value);
     }
 }
