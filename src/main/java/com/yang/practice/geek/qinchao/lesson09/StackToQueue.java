@@ -10,14 +10,24 @@ import java.util.Stack;
  */
 public class StackToQueue {
 
+    /***
+     * 入队列的元素
+     */
     Stack<Integer> input = new Stack<>();
+    /***
+     * 出队列的元素
+     */
     Stack<Integer> output = new Stack<>();
 
-    public void push(int x) {
+    public void push(Integer x) {
         input.push(x);
     }
 
-    public int pop() {
+    public Integer pop() {
+        if (isEmpty()) {
+            return null;
+        }
+        // 出队列为空时才将入队列元素放到出队列
         if (output.isEmpty()) {
             while (!input.isEmpty()) {
                 output.push(input.pop());
@@ -26,7 +36,10 @@ public class StackToQueue {
         return output.pop();
     }
 
-    public int peek() {
+    public Integer peek() {
+        if (isEmpty()) {
+            return null;
+        }
         if (output.isEmpty()) {
             while (!input.isEmpty()) {
                 output.push(input.pop());

@@ -9,7 +9,7 @@ import java.util.PriorityQueue;
  * @Author: yangguojun01
  * @Date: 2021/12/28
  */
-public class KLargest {
+public class KthLargest {
 
     public int getKLargest(int[] nums, int k) {
         PriorityQueue<Integer> queue = new PriorityQueue<>();
@@ -26,8 +26,8 @@ public class KLargest {
 
     public static void main(String[] args) {
         int[] nums = {6, 4, 8, 1, 2, 5, 3};
-        KLargest kLargest = new KLargest();
-        System.out.println(kLargest.getKLargest(nums, 3));
+        KthLargest kthLargest = new KthLargest();
+        System.out.println(kthLargest.getKLargest(nums, 3));
     }
 
     /***

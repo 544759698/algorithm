@@ -10,20 +10,34 @@ import java.util.HashSet;
  */
 public class ThreeSum {
 
+    /***
+     * 两数之和
+     * @param nums
+     * @param start
+     * @param end
+     * @param target
+     * @return
+     */
     public boolean twoSum(int[] nums, int start, int end, int target) {
         if (nums == null || start >= nums.length || end >= nums.length || start < 0 || end < 0 || start > end) {
             return false;
         }
-        HashSet<Integer> appared = new HashSet<>();
+        HashSet<Integer> appeared = new HashSet<>();
         for (int i = start; i <= end; i++) {
-            if (appared.contains(target - nums[i])) {
+            if (appeared.contains(target - nums[i])) {
                 return true;
             }
-            appared.add(nums[i]);
+            appeared.add(nums[i]);
         }
         return false;
     }
 
+    /***
+     * 三数之和
+     * @param nums
+     * @param target
+     * @return
+     */
     public boolean threeSum(int[] nums, int target) {
         if (nums == null || nums.length < 3) {
             return false;

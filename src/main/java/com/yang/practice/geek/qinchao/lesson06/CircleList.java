@@ -8,22 +8,6 @@ public class CircleList {
 
     public boolean hasCircle(Node head) {
         Node slow = head;
-        Node fast = head.next;
-        while (slow != null && fast != null) {
-            if (slow == fast) {
-                return true;
-            }
-            slow = slow.next;
-            if (fast.next == null) {
-                break;
-            }
-            fast = fast.next.next;
-        }
-        return false;
-    }
-
-    public boolean hasCircle2(Node head) {
-        Node slow = head;
         Node fast = head;
         while (slow != null && fast != null && fast.next != null) {
             slow = slow.next;
@@ -46,7 +30,7 @@ public class CircleList {
         node3.next = node4;
         node4.next = node5;
         CircleList c = new CircleList();
-        System.out.println(c.hasCircle2(node1));
+        System.out.println(c.hasCircle(node1));
     }
 
 }
