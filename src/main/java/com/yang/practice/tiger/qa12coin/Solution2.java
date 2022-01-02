@@ -14,7 +14,7 @@ public class Solution2 {
         int[] memo = new int[target + 1];
         Arrays.fill(memo, -1);
         memo[0] = 0;
-        for (int sum = 1; sum < target + 1; sum++) {
+        for (int sum = 1; sum <= target; sum++) {
             int result = -1;
             for (int coin : coins) {
                 if (sum - coin >= 0) {
