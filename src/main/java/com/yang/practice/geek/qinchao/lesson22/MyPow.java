@@ -1,14 +1,12 @@
 package com.yang.practice.geek.qinchao.lesson22;
 
-import java.sql.SQLOutput;
-
 /**
  * 求x的n次方 pow(x,n)
  *
  * @Author: yangguojun01
  * @Date: 2022/1/3
  */
-public class Solution {
+public class MyPow {
 
     /***
      * 递归写法
@@ -58,7 +56,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution s = new Solution();
+        MyPow s = new MyPow();
         System.out.println(s.myPow(2, -5));
         System.out.println(s.myPow2(2, -5));
     }

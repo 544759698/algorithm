@@ -10,11 +10,11 @@ import java.util.Queue;
  * @Author: yangguojun01
  * @Date: 2022/1/2
  */
-public class Solution1 {
+public class BinarySearchTree1 {
 
     public boolean isValidBST(Node node) {
         Queue<Integer> queue = new LinkedList<>();
-        Solution1 s1 = new Solution1();
+        BinarySearchTree1 s1 = new BinarySearchTree1();
         return s1.inOrderForValidBST(node, queue);
     }
 
@@ -35,7 +35,7 @@ public class Solution1 {
         Node n1 = new Node(1);
         n1.left = new Node(2);
         n1.right = new Node(3);
-        Solution1 s1 = new Solution1();
+        BinarySearchTree1 s1 = new BinarySearchTree1();
         System.out.println(s1.isValidBST(n1));
     }
 

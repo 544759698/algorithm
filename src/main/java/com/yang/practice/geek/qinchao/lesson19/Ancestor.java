@@ -7,7 +7,7 @@ package com.yang.practice.geek.qinchao.lesson19;
  * @Author: yangguojun01
  * @Date: 2022/1/3
  */
-public class Solution {
+public class Ancestor {
 
     public int findAncestor(Node node, int value1, int value2) {
         if (node == null) {
@@ -39,7 +39,7 @@ public class Solution {
 
     public static void main(String[] args) {
         int[] nums = {6, 2, 8, 0, 4, 7, 9, -1, -1, 3, 5};
-        Solution s = new Solution();
+        Ancestor s = new Ancestor();
         Node node = s.buildTree(nums, 0);
         System.out.println(s.findAncestor(node, 2, 4));
     }
