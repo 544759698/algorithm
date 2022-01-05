@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * 树的最大深度和最小深度
+ * 根节点到叶子节点的最大深度和最小深度，所谓叶子节点，是指左右孩子都为空的节点才是叶子节点
+ * 所以求最小深度的时候，如果左子树为空，则返回右子树的最小深度，反之亦然
  *
  * @Author: yangguojun01
  * @Date: 2022/1/5
@@ -71,10 +72,13 @@ public class TreeDepth {
         if (node == null) {
             return 0;
         }
-        if (node.left == null) {
+        // 左右孩子都为空的节点才是叶子节点，如果左子树为空，右子树不为空，说明最小深度是 1 + 右子树的深度，反之亦然
+        // 当一个左子树为空，右不为空，这时并不是最低点
+        if (node.left == null && node.right != null) {
             return getMinDepth(node.right) + 1;
         }
-        if (node.right == null) {
+        // 当一个右子树为空，左不为空，这时并不是最低点
+        if (node.right == null && node.left != null) {
             return getMinDepth(node.left) + 1;
         }
         return Math.min(getMinDepth(node.left) + 1, getMinDepth(node.right) + 1);
