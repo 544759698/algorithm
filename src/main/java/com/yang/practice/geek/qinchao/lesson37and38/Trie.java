@@ -1,4 +1,4 @@
-package com.yang.practice.geek.qinchao.lesson37;
+package com.yang.practice.geek.qinchao.lesson37and38;
 
 import org.apache.commons.lang.StringUtils;
 
