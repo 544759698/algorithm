@@ -22,8 +22,8 @@ public class SlideWindow {
         // 双端队列，deque中存储数组元素下标，这样可以不判断deque长度
         Deque<Integer> deque = new ArrayDeque<>();
         for (int i = 0; i < nums.length; i++) {
-            // 1.删除队列中小于窗口左侧下标的元素 peek取队首元素但不删除 remove取队首元素并删除
-            // 超过窗口长度的左侧元素先淘汰，保证deque长度不会超过k
+            // 1.删除队列中小于窗口左侧下标的元素，超过窗口长度的左侧元素先淘汰，保证deque长度不会超过k
+            // peek取队首元素但不删除 remove取队首元素并删除
             if (i >= k && i - k + 1 > deque.peek()) {
                 deque.remove();
             }

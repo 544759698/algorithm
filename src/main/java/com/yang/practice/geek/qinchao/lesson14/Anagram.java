@@ -24,6 +24,7 @@ public class Anagram {
             map1.put(chars1[i], map1.getOrDefault(chars1[i], 0) + 1);
             map2.put(chars2[i], map2.getOrDefault(chars2[i], 0) + 1);
         }
+        // 两个map比较
         return map1.equals(map2);
     }
 
