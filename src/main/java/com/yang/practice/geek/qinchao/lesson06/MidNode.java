@@ -3,9 +3,13 @@ package com.yang.practice.geek.qinchao.lesson06;
 /**
  * 求链表的中间结点
  * 偶数个节点时返回null
+ *
+ * @Author: yangguojun01
+ * @Date: 2021/12/27
  */
 public class MidNode {
-    public static Node findMidNode(Node head) {
+
+    public Node findMidNode(Node head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -15,6 +19,7 @@ public class MidNode {
             fast = fast.next.next;
             slow = slow.next;
         }
+        // 判断是否为偶数个节点
         if (fast.next != null && fast.next.next == null) {
             return null;
         }
@@ -29,7 +34,8 @@ public class MidNode {
         node1.next = node2;
         node2.next = node3;
         //        node3.next = node4;
-        Node node = findMidNode(node1);
+        MidNode m = new MidNode();
+        Node node = m.findMidNode(node1);
         System.out.println(node == null ? "null" : node.value);
     }
 }

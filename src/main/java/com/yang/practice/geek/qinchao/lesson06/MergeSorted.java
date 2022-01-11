@@ -2,10 +2,14 @@ package com.yang.practice.geek.qinchao.lesson06;
 
 /**
  * 合并两个有序链表
+ *
+ * @Author: yangguojun01
+ * @Date: 2021/12/27
  */
 public class MergeSorted {
 
-    public static Node mergeSorted(Node left, Node right) {
+    public Node mergeSorted(Node left, Node right) {
+
         if (left == null) {
             return right;
         }
@@ -57,7 +61,8 @@ public class MergeSorted {
         node5.next = node7;
         node6.next = node8;
         node7.next = node9;
-        Node node = mergeSorted(node1, node2);
+        MergeSorted m = new MergeSorted();
+        Node node = m.mergeSorted(node1, node2);
         System.out.println(node.value);
     }
 }

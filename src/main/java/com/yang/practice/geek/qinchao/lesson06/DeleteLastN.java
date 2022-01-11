@@ -2,9 +2,13 @@ package com.yang.practice.geek.qinchao.lesson06;
 
 /**
  * 删除倒数第N个节点
+ *
+ * @Author: yangguojun01
+ * @Date: 2021/12/27
  */
 public class DeleteLastN {
-    public static Node deleteLastN(Node head, int n) {
+
+    public Node deleteLastN(Node head, int n) {
         int i = 0;
         Node fast = head;
         while (i < n && fast != null) {
@@ -35,7 +39,8 @@ public class DeleteLastN {
         node1.next = node2;
         node2.next = node3;
         node3.next = node4;
-        Node node = deleteLastN(node1, 3);
+        DeleteLastN d = new DeleteLastN();
+        Node node = d.deleteLastN(node1, 3);
         System.out.println(node.value);
     }
 }

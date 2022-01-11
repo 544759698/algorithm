@@ -1,6 +1,8 @@
 package com.yang.practice.geek.qinchao.lesson06;
 
 /**
+ * 判断链表是否有环
+ *
  * @Author: yangguojun01
  * @Date: 2021/12/27
  */
