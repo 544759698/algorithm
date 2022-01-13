@@ -26,9 +26,8 @@ public class CommonStock {
         /*dp定义：dp[i][j][k]代表 第i天交易了k次时的最大利润，其中j代表当天是否持有股票，0不持有，1持有*/
         int[][][] maxProfit = new int[n][2][k + 1];
         for (int kTmp = 0; kTmp <= k; kTmp++) {
-            // 第1天买入 - 卖出循环 K 次之后不再买入，所以初始值为 0
+            // 赋初始值，第一天没有股票就为0，有股票就为-prices[0]
             maxProfit[0][0][kTmp] = 0;
-            // 第1天买入 - 卖出循环 K 次之后又买入，所以初始值为 -prices[0]
             maxProfit[0][1][kTmp] = -prices[0];
         }
         /*状态方程：
