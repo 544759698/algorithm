@@ -11,9 +11,12 @@ import java.util.Arrays;
 public class Solution {
 
     public int getGold(int[] golds) {
+        // memo[i]表示从第i个位置偷到最后的最大值
         int[] memo = new int[golds.length];
         Arrays.fill(memo, -1);
-        return getMemo(0, memo, golds);
+        getMemo(0, memo, golds);
+        return memo[0];
+        // 最后两句等价于 return getMemo(0, memo, golds);
     }
 
     public int getMemo(int id, int[] memo, int[] houses) {

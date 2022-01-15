@@ -16,6 +16,7 @@ public class Solution2 {
         if (golds.length == 2) {
             return Math.max(golds[0], golds[1]);
         }
+        // memo[i]表示从0偷到第i个位置的最大值
         int[] memo = new int[golds.length];
         memo[0] = golds[0];
         memo[1] = Math.max(golds[0], golds[1]);
