@@ -3,15 +3,17 @@ package com.yang.practice.tiger.qa11gold;
 import java.util.Arrays;
 
 /**
+ * 给定一个数组代表金子数量，不能连偷，取最大值
+ *
  * @Author: yangguojun01
  * @Date: 2021/12/20
  */
 public class Solution {
 
-    public int getGold(int[] houses) {
-        int[] memo = new int[houses.length];
+    public int getGold(int[] golds) {
+        int[] memo = new int[golds.length];
         Arrays.fill(memo, -1);
-        return getMemo(0, memo, houses);
+        return getMemo(0, memo, golds);
     }
 
     public int getMemo(int id, int[] memo, int[] houses) {
