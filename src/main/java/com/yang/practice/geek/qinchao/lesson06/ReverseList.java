@@ -1,7 +1,7 @@
 package com.yang.practice.geek.qinchao.lesson06;
 
 /**
- * 单链表反转
+ * leetcode206 单链表反转
  *
  * @Author: yangguojun01
  * @Date: 2021/12/26

@@ -1,14 +1,14 @@
 package com.yang.practice.geek.qinchao.lesson06;
 
 /**
- * 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。如：给定 1->2->3->4, 应该返回 2->1->4->3.
+ * leetcode24 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
+ * 如：给定 1->2->3->4, 应该返回 2->1->4->3.
+ * TODO 待复习
  *
  * @Author: yangguojun01
  * @Date: 2021/12/27
  */
 public class SwapTwoNodes {
-
-    // TODO 待复习
 
     public Node swapTwoNodes(Node head) {
         Node dump = new Node(-1);
