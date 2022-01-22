@@ -1,34 +1,27 @@
 package com.yang.practice.geek.qinchao.lesson06;
 
 /**
- * 删除倒数第N个节点
+ * leetcode19 删除倒数第N个节点
  *
  * @Author: yangguojun01
  * @Date: 2021/12/27
  */
 public class DeleteLastN {
 
-    public ListNode deleteLastN(ListNode head, int n) {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode beforeN = new ListNode(-1);
+        ListNode dumpy = beforeN;
+        beforeN.next = head;
         int i = 0;
-        ListNode fast = head;
-        while (i < n && fast != null) {
-            fast = fast.next;
+        while (head != null) {
             i++;
+            if (i > n) {
+                beforeN = beforeN.next;
+            }
+            head = head.next;
         }
-        if (fast == null) {
-            return null;
-        }
-        ListNode slow = head;
-        ListNode prev = null;
-        while (fast != null) {
-            fast = fast.next;
-            prev = slow;
-            slow = slow.next;
-        }
-        if (prev != null) {
-            prev.next = prev.next.next;
-        }
-        return prev;
+        beforeN.next = beforeN.next.next;
+        return dumpy.next;
     }
 
     public static void main(String[] args) {
@@ -40,7 +33,7 @@ public class DeleteLastN {
         listNode2.next = listNode3;
         listNode3.next = listNode4;
         DeleteLastN d = new DeleteLastN();
-        ListNode listNode = d.deleteLastN(listNode1, 3);
+        ListNode listNode = d.removeNthFromEnd(listNode1, 3);
         System.out.println(listNode.value);
     }
 }
