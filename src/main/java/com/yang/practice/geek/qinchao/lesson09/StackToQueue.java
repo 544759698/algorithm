@@ -3,7 +3,7 @@ package com.yang.practice.geek.qinchao.lesson09;
 import java.util.Stack;
 
 /**
- * 用栈实现队列
+ * leetcode 232 225 用栈实现队列
  *
  * @Author: yangguojun01
  * @Date: 2021/12/28
