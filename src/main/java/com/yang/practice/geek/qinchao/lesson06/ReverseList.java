@@ -33,7 +33,7 @@ public class ReverseList {
         ReverseList r = new ReverseList();
         ListNode newHead = r.reverseList(listNode1);
         while (newHead != null) {
-            System.out.println(newHead.value);
+            System.out.println(newHead.val);
             newHead = newHead.next;
         }
     }
@@ -41,10 +41,10 @@ public class ReverseList {
 }
 
 class ListNode {
-    int value;
+    int val;
     ListNode next;
 
-    public ListNode(int value) {
-        this.value = value;
+    public ListNode(int val) {
+        this.val = val;
     }
 }

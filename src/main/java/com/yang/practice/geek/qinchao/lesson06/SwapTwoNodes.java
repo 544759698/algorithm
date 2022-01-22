@@ -39,7 +39,7 @@ public class SwapTwoNodes {
         SwapTwoNodes s = new SwapTwoNodes();
         ListNode newHead = s.swapTwoNodes(listNode1);
         while (newHead != null) {
-            System.out.println(newHead.value);
+            System.out.println(newHead.val);
             newHead = newHead.next;
         }
     }

@@ -35,6 +35,6 @@ public class MidNode {
         listNode3.next = listNode4;
         MidNode m = new MidNode();
         ListNode listNode = m.findMidNode(listNode1);
-        System.out.println(listNode == null ? "null" : listNode.value);
+        System.out.println(listNode == null ? "null" : listNode.val);
     }
 }

@@ -34,6 +34,6 @@ public class DeleteLastN {
         listNode3.next = listNode4;
         DeleteLastN d = new DeleteLastN();
         ListNode listNode = d.removeNthFromEnd(listNode1, 3);
-        System.out.println(listNode.value);
+        System.out.println(listNode.val);
     }
 }

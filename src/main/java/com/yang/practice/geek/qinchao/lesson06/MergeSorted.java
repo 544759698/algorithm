@@ -1,47 +1,29 @@
 package com.yang.practice.geek.qinchao.lesson06;
 
 /**
- * 合并两个有序链表
+ * leetcode21 合并两个有序链表
  *
  * @Author: yangguojun01
  * @Date: 2021/12/27
  */
 public class MergeSorted {
 
-    public ListNode mergeSorted(ListNode left, ListNode right) {
-
-        if (left == null) {
-            return right;
-        }
-        if (right == null) {
-            return left;
-        }
-
-        ListNode head;
-        if (left.value < right.value) {
-            head = left;
-            left = left.next;
-        } else {
-            head = right;
-            right = right.next;
-        }
-        ListNode p = head;
-        while (left != null && right != null) {
-            if (left.value < right.value) {
-                p.next = left;
-                left = left.next;
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        // 添加一个哨兵节点，省很多代码
+        ListNode prev = new ListNode(-1);
+        ListNode preHead = prev;
+        while (list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                prev.next = list1;
+                list1 = list1.next;
             } else {
-                p.next = right;
-                right = right.next;
+                prev.next = list2;
+                list2 = list2.next;
             }
-            p = p.next;
+            prev = prev.next;
         }
-        if (left != null) {
-            p.next = left;
-        } else {
-            p.next = right;
-        }
-        return head;
+        prev.next = list1 != null ? list1 : list2;
+        return preHead.next;
     }
 
     public static void main(String[] args) {
@@ -62,7 +44,7 @@ public class MergeSorted {
         listNode6.next = listNode8;
         listNode7.next = listNode9;
         MergeSorted m = new MergeSorted();
-        ListNode listNode = m.mergeSorted(listNode1, listNode2);
-        System.out.println(listNode.value);
+        ListNode listNode = m.mergeTwoLists(listNode1, listNode2);
+        System.out.println(listNode.val);
     }
 }
