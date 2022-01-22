@@ -8,9 +8,9 @@ package com.yang.practice.geek.qinchao.lesson06;
  */
 public class DeleteLastN {
 
-    public Node deleteLastN(Node head, int n) {
+    public ListNode deleteLastN(ListNode head, int n) {
         int i = 0;
-        Node fast = head;
+        ListNode fast = head;
         while (i < n && fast != null) {
             fast = fast.next;
             i++;
@@ -18,8 +18,8 @@ public class DeleteLastN {
         if (fast == null) {
             return null;
         }
-        Node slow = head;
-        Node prev = null;
+        ListNode slow = head;
+        ListNode prev = null;
         while (fast != null) {
             fast = fast.next;
             prev = slow;
@@ -32,15 +32,15 @@ public class DeleteLastN {
     }
 
     public static void main(String[] args) {
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
+        ListNode listNode1 = new ListNode(1);
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode3 = new ListNode(3);
+        ListNode listNode4 = new ListNode(4);
+        listNode1.next = listNode2;
+        listNode2.next = listNode3;
+        listNode3.next = listNode4;
         DeleteLastN d = new DeleteLastN();
-        Node node = d.deleteLastN(node1, 3);
-        System.out.println(node.value);
+        ListNode listNode = d.deleteLastN(listNode1, 3);
+        System.out.println(listNode.value);
     }
 }

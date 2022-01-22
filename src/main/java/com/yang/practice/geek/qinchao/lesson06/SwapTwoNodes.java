@@ -10,13 +10,13 @@ package com.yang.practice.geek.qinchao.lesson06;
  */
 public class SwapTwoNodes {
 
-    public Node swapTwoNodes(Node head) {
-        Node dump = new Node(-1);
+    public ListNode swapTwoNodes(ListNode head) {
+        ListNode dump = new ListNode(-1);
         dump.next = head;
         head = dump;
         while (head.next != null && head.next.next != null) {
-            Node n1 = head.next;
-            Node n2 = head.next.next;
+            ListNode n1 = head.next;
+            ListNode n2 = head.next.next;
             head.next = n2;
             // 下面两步必须此顺序，否则n2.next变了后再把n1.next指向n2.next就不对了
             n1.next = n2.next;
@@ -27,17 +27,17 @@ public class SwapTwoNodes {
     }
 
     public static void main(String[] args) {
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-        node4.next = node5;
+        ListNode listNode1 = new ListNode(1);
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode3 = new ListNode(3);
+        ListNode listNode4 = new ListNode(4);
+        ListNode listNode5 = new ListNode(5);
+        listNode1.next = listNode2;
+        listNode2.next = listNode3;
+        listNode3.next = listNode4;
+        listNode4.next = listNode5;
         SwapTwoNodes s = new SwapTwoNodes();
-        Node newHead = s.swapTwoNodes(node1);
+        ListNode newHead = s.swapTwoNodes(listNode1);
         while (newHead != null) {
             System.out.println(newHead.value);
             newHead = newHead.next;

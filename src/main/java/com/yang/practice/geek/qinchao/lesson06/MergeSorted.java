@@ -8,7 +8,7 @@ package com.yang.practice.geek.qinchao.lesson06;
  */
 public class MergeSorted {
 
-    public Node mergeSorted(Node left, Node right) {
+    public ListNode mergeSorted(ListNode left, ListNode right) {
 
         if (left == null) {
             return right;
@@ -17,7 +17,7 @@ public class MergeSorted {
             return left;
         }
 
-        Node head;
+        ListNode head;
         if (left.value < right.value) {
             head = left;
             left = left.next;
@@ -25,7 +25,7 @@ public class MergeSorted {
             head = right;
             right = right.next;
         }
-        Node p = head;
+        ListNode p = head;
         while (left != null && right != null) {
             if (left.value < right.value) {
                 p.next = left;
@@ -45,24 +45,24 @@ public class MergeSorted {
     }
 
     public static void main(String[] args) {
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
-        Node node6 = new Node(6);
-        Node node7 = new Node(7);
-        Node node8 = new Node(8);
-        Node node9 = new Node(9);
-        node1.next = node3;
-        node2.next = node4;
-        node3.next = node5;
-        node4.next = node6;
-        node5.next = node7;
-        node6.next = node8;
-        node7.next = node9;
+        ListNode listNode1 = new ListNode(1);
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode3 = new ListNode(3);
+        ListNode listNode4 = new ListNode(4);
+        ListNode listNode5 = new ListNode(5);
+        ListNode listNode6 = new ListNode(6);
+        ListNode listNode7 = new ListNode(7);
+        ListNode listNode8 = new ListNode(8);
+        ListNode listNode9 = new ListNode(9);
+        listNode1.next = listNode3;
+        listNode2.next = listNode4;
+        listNode3.next = listNode5;
+        listNode4.next = listNode6;
+        listNode5.next = listNode7;
+        listNode6.next = listNode8;
+        listNode7.next = listNode9;
         MergeSorted m = new MergeSorted();
-        Node node = m.mergeSorted(node1, node2);
-        System.out.println(node.value);
+        ListNode listNode = m.mergeSorted(listNode1, listNode2);
+        System.out.println(listNode.value);
     }
 }

@@ -1,41 +1,40 @@
 package com.yang.practice.geek.qinchao.lesson06;
 
 /**
- * 求链表的中间结点
- * 偶数个节点时返回null
+ * leetcode876 求链表的中间结点
+ * 偶数个节点时返回中间一对后面的节点
  *
  * @Author: yangguojun01
  * @Date: 2021/12/27
  */
 public class MidNode {
 
-    public Node findMidNode(Node head) {
+    public ListNode findMidNode(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        Node fast = head;
-        Node slow = head;
-        while (fast.next != null && fast.next.next != null) {
-            fast = fast.next.next;
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
             slow = slow.next;
-        }
-        // 判断是否为偶数个节点
-        if (fast.next != null && fast.next.next == null) {
-            return null;
+            fast = fast.next.next;
         }
         return slow;
+        // 判断是否为偶数个节点，偶数个节点返回null
+        //        return fast != null && fast.next == null ? slow : null;
     }
 
     public static void main(String[] args) {
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        node1.next = node2;
-        node2.next = node3;
-        //        node3.next = node4;
+        ListNode listNode1 = new ListNode(1);
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode3 = new ListNode(3);
+        ListNode listNode4 = new ListNode(4);
+        listNode1.next = listNode2;
+        listNode2.next = listNode3;
+        listNode3.next = listNode4;
         MidNode m = new MidNode();
-        Node node = m.findMidNode(node1);
-        System.out.println(node == null ? "null" : node.value);
+        ListNode listNode = m.findMidNode(listNode1);
+        System.out.println(listNode == null ? "null" : listNode.value);
     }
 }
