@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * 有效的字母异位词 eg:tar rat
+ * leetcode242 有效的字母异位词 eg:tar rat
  *
  * @Author: yangguojun01
  * @Date: 2021/12/30
