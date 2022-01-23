@@ -6,20 +6,20 @@ package com.yang.practice.geek.qinchao.lesson18;
  */
 public class BinarySearchTree2 {
 
-    public boolean isValidBST(Node node, Integer min, Integer max) {
-        if (node == null) {
+    public boolean isValidBST(TreeNode treeNode, Integer min, Integer max) {
+        if (treeNode == null) {
             return true;
         }
-        if ((min != null && min >= node.value) || (max != null && max <= node.value)) {
+        if ((min != null && min >= treeNode.val) || (max != null && max <= treeNode.val)) {
             return false;
         }
-        return isValidBST(node.left, min, node.value) && isValidBST(node.right, node.value, max);
+        return isValidBST(treeNode.left, min, treeNode.val) && isValidBST(treeNode.right, treeNode.val, max);
     }
 
     public static void main(String[] args) {
-        Node n1 = new Node(1);
-        n1.left = new Node(2);
-        n1.right = new Node(3);
+        TreeNode n1 = new TreeNode(1);
+        n1.left = new TreeNode(2);
+        n1.right = new TreeNode(3);
         BinarySearchTree2 s2 = new BinarySearchTree2();
         System.out.println(s2.isValidBST(n1, null, null));
     }

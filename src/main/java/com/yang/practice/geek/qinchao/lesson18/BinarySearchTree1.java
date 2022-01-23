@@ -1,52 +1,51 @@
 package com.yang.practice.geek.qinchao.lesson18;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
- * 判断是否为二叉搜索树，及左子树小于根节点，右子树大于根节点
- * 中序遍历方法，前置节点小于当前节点即可
+ * leetcode98 判断是否为二叉搜索树，即左子树小于根节点，右子树大于根节点
+ * 中序遍历方法，前置节点小于当前节点即可 TODO 待复习
  *
  * @Author: yangguojun01
  * @Date: 2022/1/2
  */
 public class BinarySearchTree1 {
 
-    public boolean isValidBST(Node node) {
-        Queue<Integer> queue = new LinkedList<>();
-        BinarySearchTree1 s1 = new BinarySearchTree1();
-        return s1.inOrderForValidBST(node, queue);
-    }
+    long pre = Long.MIN_VALUE;
 
-    private boolean inOrderForValidBST(Node node, Queue<Integer> queue) {
-        if (node == null) {
+    public boolean isValidBST(TreeNode root) {
+        if (root == null) {
             return true;
         }
-        inOrderForValidBST(node.left, queue);
-        if (!queue.isEmpty() && queue.poll() >= node.value) {
+        if (!isValidBST(root.left)) {
             return false;
         }
-        queue.add(node.value);
-        inOrderForValidBST(node.right, queue);
+        if (pre >= root.val) {
+            return false;
+        }
+        pre = root.val;
+        if (!isValidBST(root.right)) {
+            return false;
+        }
         return true;
+        // return isValidBST(root.right);
     }
 
     public static void main(String[] args) {
-        Node n1 = new Node(1);
-        n1.left = new Node(2);
-        n1.right = new Node(3);
+        TreeNode n1 = new TreeNode(2);
+        n1.left = new TreeNode(1);
+        n1.right = new TreeNode(3);
+        n1.left.left = new TreeNode(4);
         BinarySearchTree1 s1 = new BinarySearchTree1();
         System.out.println(s1.isValidBST(n1));
     }
 
 }
 
-class Node {
-    int value;
-    Node left;
-    Node right;
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
 
-    public Node(int value) {
-        this.value = value;
+    public TreeNode(int val) {
+        this.val = val;
     }
 }
