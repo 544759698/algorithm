@@ -22,8 +22,8 @@ public class SlideWindow {
         for (int i = 0; i < nums.length; i++) {
             // 1.删除队列中小于窗口左侧下标的元素，超过窗口长度的左侧元素先淘汰，保证deque长度不会超过k
             // peek取队首元素但不删除 remove取队首元素并删除
-            if (i >= k && i + 1 - k > deque.peek()) {
-                deque.remove();
+            if (i >= k && i + 1 - k > deque.peekFirst()) {
+                deque.removeFirst();
             }
             // 2.判断nums[i]是否比队列中元素大，从队列右侧开始删除小于nums[i]的元素
             while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
@@ -33,7 +33,7 @@ public class SlideWindow {
             deque.add(i);
             // 4.队列左侧是最大值加入到结果集中，因为超过窗口长度的在第1步中淘汰，比他小的在第2步中淘汰
             if (i + 1 - k >= 0) {
-                ret[i + 1 - k] = nums[deque.peek()];
+                ret[i + 1 - k] = nums[deque.peekFirst()];
             }
         }
         return ret;
