@@ -11,23 +11,32 @@ import java.util.PriorityQueue;
  */
 public class KthLargest {
 
-    public int getKLargest(int[] nums, int k) {
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
+    PriorityQueue<Integer> queue;
+    int capacity;
+
+    public KthLargest(int k, int[] nums) {
+        // initialCapacity只是初始容量，超过会再增长
+        queue = new PriorityQueue<>();
+        capacity = k;
         for (int i = 0; i < nums.length; i++) {
-            if (i < k) {
-                queue.offer(nums[i]);
-            } else if (nums[i] > queue.peek()) {
-                queue.poll();
-                queue.offer(nums[i]);
-            }
+            // 这里调用自己类的add方法，不用queue的
+            this.add(nums[i]);
+        }
+    }
+
+    public int add(int val) {
+        // 先添加再判断长度，代码相比先判断后添加简洁些
+        queue.offer(val);
+        if (queue.size() > capacity) {
+            queue.poll();
         }
         return queue.peek();
     }
 
     public static void main(String[] args) {
         int[] nums = {6, 4, 8, 1, 2, 5, 3};
-        KthLargest kthLargest = new KthLargest();
-        System.out.println(kthLargest.getKLargest(nums, 3));
+        KthLargest kthLargest = new KthLargest(3, nums);
+        System.out.println(kthLargest.add(3));
     }
 
     /***
