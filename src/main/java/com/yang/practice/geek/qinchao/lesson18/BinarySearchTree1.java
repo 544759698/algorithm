@@ -1,5 +1,8 @@
 package com.yang.practice.geek.qinchao.lesson18;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * leetcode98 判断是否为二叉搜索树，即左子树小于根节点，右子树大于根节点
  * 中序遍历方法，前置节点小于当前节点即可 TODO 待复习
@@ -9,7 +12,8 @@ package com.yang.practice.geek.qinchao.lesson18;
  */
 public class BinarySearchTree1 {
 
-    long pre = Long.MIN_VALUE;
+    //    long pre = Long.MIN_VALUE;
+    Queue<Integer> queue = new LinkedList<>();
 
     public boolean isValidBST(TreeNode root) {
         if (root == null) {
@@ -18,10 +22,10 @@ public class BinarySearchTree1 {
         if (!isValidBST(root.left)) {
             return false;
         }
-        if (pre >= root.val) {
+        if (!queue.isEmpty() && queue.poll() >= root.val) {
             return false;
         }
-        pre = root.val;
+        queue.add(root.val);
         if (!isValidBST(root.right)) {
             return false;
         }
