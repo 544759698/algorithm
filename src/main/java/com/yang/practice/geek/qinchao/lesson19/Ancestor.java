@@ -1,7 +1,7 @@
 package com.yang.practice.geek.qinchao.lesson19;
 
 /**
- * 寻找二叉树公共祖先
+ * leetcode 235 236 寻找二叉树公共祖先
  * nums = {6, 2, 8, 0, 4, 7, 9, -1, -1, 3, 5} 2,8->6;2,4->2
  *
  * @Author: yangguojun01
