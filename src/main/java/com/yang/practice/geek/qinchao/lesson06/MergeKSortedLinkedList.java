@@ -5,6 +5,9 @@ import java.util.PriorityQueue;
 
 /**
  * leetcode23 合并K个升序链表
+ * 方法一：用优先队列（小顶堆）
+ * 方法二：两两顺序合并，循环利用合并两个有序链表方法
+ * 方法三：分治，递归
  *
  * @Author: yangguojun01
  * @Date: 2022/1/24
