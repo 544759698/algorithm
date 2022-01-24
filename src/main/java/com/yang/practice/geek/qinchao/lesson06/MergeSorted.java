@@ -9,9 +9,9 @@ package com.yang.practice.geek.qinchao.lesson06;
 public class MergeSorted {
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        // 添加一个哨兵节点，省很多代码
+        // TODO 添加一个哨兵节点，省很多代码
         ListNode prev = new ListNode(-1);
-        ListNode preHead = prev;
+        ListNode mockHead = prev;
         while (list1 != null && list2 != null) {
             if (list1.val < list2.val) {
                 prev.next = list1;
@@ -23,7 +23,7 @@ public class MergeSorted {
             prev = prev.next;
         }
         prev.next = list1 != null ? list1 : list2;
-        return preHead.next;
+        return mockHead.next;
     }
 
     public static void main(String[] args) {
