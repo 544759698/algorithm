@@ -1,7 +1,7 @@
 package com.yang.practice.geek.qinchao.lesson22;
 
 /**
- * 求x的n次方 pow(x,n)
+ * leetcode50 求x的n次方 pow(x,n)
  *
  * @Author: yangguojun01
  * @Date: 2022/1/3
@@ -9,50 +9,58 @@ package com.yang.practice.geek.qinchao.lesson22;
 public class MyPow {
 
     /***
-     * 递归写法
+     * 方法一：递归写法
      * @param x
      * @param n
      * @return
      */
-    public double myPow(int x, int n) {
-        if (n == 0) {
+    public double myPow(double x, int n) {
+        // 防止n为负数时-n越界
+        // NT_MAX是2147483647到-2147483648,-(-2147483648)会超出INT_MAX
+        long ln = n;
+        if (ln < 0) {
+            return 1 / myPowInner(x, -ln);
+        }
+        return myPowInner(x, ln);
+    }
+
+    public double myPowInner(double x, long ln) {
+        if (ln == 0) {
             return 1;
         }
-        if (n < 0) {
-            return 1 / myPow(x, -n);
+        if ((ln & 1) == 1) {
+            return x * myPowInner(x, ln - 1);
+        } else {
+            return myPowInner(x * x, ln / 2);
         }
-        if (n % 2 == 1) {
-            return x * myPow(x, n - 1);
-        }
-        return myPow(x * x, n / 2);
     }
 
     /***
-     * 非递归写法
+     * 方法二：非递归写法 TODO 不理解
      * @param x
      * @param n
      * @return
      */
     public double myPow2(int x, int n) {
-        if (n == 0) {
-            return 1;
+        // 防止n为负数时-n越界
+        long ln = n;
+        if (ln < 0) {
+            return 1 / myPowLoop(x, -ln);
         }
-        double dx = x;
-        if (n < 0) {
-            n = -n;
-            dx = 1 / dx;
-        }
-        double pow = 1;
-        // 通过n/2，判断x要乘以多少次它自身
-        while (n > 0) {
-            // if n&1==1
-            if (n % 2 == 1) {
-                pow = dx * pow;
+        return myPowLoop(x, ln);
+    }
+
+    public double myPowLoop(double x, long ln) {
+        double ret = 1;
+        double xContribute = x;
+        while (ln > 0) {
+            if ((ln & 1) == 1) {
+                ret = ret * xContribute;
             }
-            dx = dx * dx;
-            n = n / 2;
+            xContribute = xContribute * xContribute;
+            ln = ln / 2;
         }
-        return pow;
+        return ret;
     }
 
     public static void main(String[] args) {
