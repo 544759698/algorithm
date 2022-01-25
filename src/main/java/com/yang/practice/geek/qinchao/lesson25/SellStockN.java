@@ -1,7 +1,7 @@
 package com.yang.practice.geek.qinchao.lesson25;
 
 /**
- * 买卖股票，最简单的题，给一组价格，不限制买卖次数
+ * leetcode122 买卖股票，最简单的题，给一组价格，不限制买卖次数
  *
  * @Author: yangguojun01
  * @Date: 2022/1/4
@@ -13,7 +13,7 @@ public class SellStockN {
             return 0;
         }
         int maxProfit = 0;
-        for (int i = 0; i < prices.length - 2; i++) {
+        for (int i = 0; i < prices.length - 1; i++) {
             if (prices[i + 1] > prices[i]) {
                 maxProfit += prices[i + 1] - prices[i];
             }
