@@ -37,30 +37,26 @@ public class MyPow {
 
     /***
      * 方法二：非递归写法 TODO 不理解
+     * 参考：https://leetcode-cn.com/problems/powx-n/solution/50-powx-n-kuai-su-mi-fa-by-lelelongwang-2572/
      * @param x
      * @param n
      * @return
      */
     public double myPow2(int x, int n) {
-        // 防止n为负数时-n越界
-        long ln = n;
-        if (ln < 0) {
-            return 1 / myPowLoop(x, -ln);
-        }
-        return myPowLoop(x, ln);
-    }
-
-    public double myPowLoop(double x, long ln) {
-        double ret = 1;
-        double xContribute = x;
-        while (ln > 0) {
-            if ((ln & 1) == 1) {
-                ret = ret * xContribute;
+        long p = n;
+        p = Math.abs(p);
+        double temp = x;
+        double result = 1;
+        while (p > 0) {
+            //如果是奇数
+            if ((p & 1) == 1) {
+                result = result * temp;
             }
-            xContribute = xContribute * xContribute;
-            ln = ln / 2;
+            temp = temp * temp;
+            //每次指数变为原来的二倍
+            p = p / 2;
         }
-        return ret;
+        return n > 0 ? result : 1.0 / result;
     }
 
     public static void main(String[] args) {
