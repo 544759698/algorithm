@@ -5,9 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.springframework.util.CollectionUtils;
-
 /**
+ * leetcode51 N皇后问题
+ *
  * @Author: yangguojun01
  * @Date: 2022/1/7
  */
@@ -29,8 +29,8 @@ public class NQueue {
     public void dfs(int n, int row, Set<Integer> cols, Set<Integer> pies, Set<Integer> nas,
                     List<String> anAnswerList, List<List<String>> ret) {
         if (row >= n) {
-            ret.add(cloneList(anAnswerList));
-            anAnswerList.clear();
+            // 此处需要克隆，因为anAnswerList还需要回溯
+            ret.add(new ArrayList<>(anAnswerList));
             return;
         }
         for (int j = 0; j < n; j++) {
@@ -40,11 +40,14 @@ public class NQueue {
             cols.add(j);
             pies.add(row + j);
             nas.add(row - j);
-            anAnswerList.add(genAnAnswer(n, j));
+            String sRow = genAnAnswer(n, j);
+            anAnswerList.add(sRow);
             dfs(n, row + 1, cols, pies, nas, anAnswerList, ret);
             cols.remove(j);
             pies.remove(row + j);
             nas.remove(row - j);
+            // 回溯
+            anAnswerList.remove(sRow);
         }
     }
 
@@ -61,7 +64,7 @@ public class NQueue {
     }
 
     public List<String> cloneList(List<String> list) {
-        if (CollectionUtils.isEmpty(list)) {
+        if (list == null || list.size() == 0) {
             return null;
         }
         List<String> ret = new ArrayList<>();
@@ -73,7 +76,7 @@ public class NQueue {
 
     public static void main(String[] args) {
         NQueue nQueue = new NQueue();
-        List<List<String>> ret = nQueue.solveNQueue(8);
+        List<List<String>> ret = nQueue.solveNQueue(5);
         System.out.println(ret.size());
         System.out.println(ret);
     }
