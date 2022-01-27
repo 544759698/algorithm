@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * leetcode22 数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
+ * TODO 待复习
+ *
  * @Author: yangguojun01
  * @Date: 2022/1/6
  */
@@ -24,7 +27,7 @@ public class GenerateParenthesis {
         if (leftAvailable > 0) {
             generateOneByOne(sub + "(", leftAvailable - 1, rightAvailable, ret);
         }
-        // leftAvailable最小为0，rightAvailable必然大于0
+        // leftAvailable最小为0，rightAvailable必然大于0，否则必然不合法
         if (rightAvailable > leftAvailable) {
             generateOneByOne(sub + ")", leftAvailable, rightAvailable - 1, ret);
         }
