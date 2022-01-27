@@ -89,3 +89,21 @@ class TreeNode {
         this.val = val;
     }
 }
+
+// TODO 参考dfs实现层序遍历
+//class Solution {
+//    public List<List<Integer>> levelOrder(TreeNode root) {
+//        if(root == null) return new ArrayList<>();
+//        List<List<Integer>> list = new ArrayList<>();
+//        dfs(root, list, 1);
+//        return list;
+//    }
+//
+//    public void dfs(TreeNode root, List<List<Integer>> list, int level){
+//        if(root == null) return;
+//        if(list.size() < level) list.add(new ArrayList<Integer>());
+//        list.get(level - 1).add(root.val);
+//        dfs(root.left, list, level + 1);
+//        dfs(root.right, list, level + 1);
+//    }
+//}
