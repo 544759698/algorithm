@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 根节点到叶子节点的最大深度和最小深度，所谓叶子节点，是指左右孩子都为空的节点才是叶子节点
+ * leetcode 104 111 根节点到叶子节点的最大深度和最小深度，所谓叶子节点，是指左右孩子都为空的节点才是叶子节点
  * 所以求最小深度的时候，如果左子树为空，则返回右子树的最小深度，反之亦然
  *
  * @Author: yangguojun01
@@ -73,6 +73,44 @@ public class TreeDepth {
         }
         return Math.min(minDepth(root.left) + 1, minDepth(root.right) + 1);
     }
+
+    // 非递归
+    //    class Solution {
+    //        class QueueNode {
+    //            TreeNode node;
+    //            int depth;
+    //
+    //            public QueueNode(TreeNode node, int depth) {
+    //                this.node = node;
+    //                this.depth = depth;
+    //            }
+    //        }
+    //
+    //        public int minDepth(TreeNode root) {
+    //            if (root == null) {
+    //                return 0;
+    //            }
+    //
+    //            Queue<QueueNode> queue = new LinkedList<QueueNode>();
+    //            queue.offer(new QueueNode(root, 1));
+    //            while (!queue.isEmpty()) {
+    //                QueueNode nodeDepth = queue.poll();
+    //                TreeNode node = nodeDepth.node;
+    //                int depth = nodeDepth.depth;
+    //                if (node.left == null && node.right == null) {
+    //                    return depth;
+    //                }
+    //                if (node.left != null) {
+    //                    queue.offer(new QueueNode(node.left, depth + 1));
+    //                }
+    //                if (node.right != null) {
+    //                    queue.offer(new QueueNode(node.right, depth + 1));
+    //                }
+    //            }
+    //
+    //            return 0;
+    //        }
+    //    }
 
     public static void main(String[] args) {
         TreeNode n1 = new TreeNode(1);
