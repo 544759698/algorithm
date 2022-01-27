@@ -1,8 +1,6 @@
 package com.yang.practice.geek.qinchao.lesson29;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 /**
@@ -15,101 +13,93 @@ import java.util.Queue;
 public class TreeDepth {
 
     /***
-     * 取最大深度（非递归）
-     * @param node
+     * 取最大深度（递归）
+     * @param root
      * @return
      */
-    public int getMaxDepth1(Node node) {
-        if (node == null) {
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
             return 0;
         }
-        List<List<Node>> levelList = new ArrayList<>();
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(node);
-        List<Node> firstLevel = new ArrayList<>();
-        firstLevel.add(node);
-        levelList.add(firstLevel);
-        while (!queue.isEmpty()) {
-            List<Node> level = new ArrayList<>();
-            int levelSize = queue.size();
-            for (int i = 0; i < levelSize; i++) {
-                Node first = queue.poll();
-                if (first.left != null) {
-                    queue.add(first.left);
-                    level.add(first.left);
-                }
-                if (first.right != null) {
-                    queue.add(first.right);
-                    level.add(first.right);
-                }
-            }
-            if (level.size() > 0) {
-                levelList.add(level);
-            }
-        }
-        return levelList.size();
+        return Math.max(maxDepth(root.left) + 1, maxDepth(root.right) + 1);
     }
 
     /***
-     * 取最大深度（递归）
-     * @param node
+     * 取最大深度（非递归）
+     * @param root
      * @return
      */
-    public int getMaxDepth2(Node node) {
-        if (node == null) {
+    public int getMaxDepth2(TreeNode root) {
+        if (root == null) {
             return 0;
         }
-        return Math.max(getMaxDepth2(node.left) + 1, getMaxDepth2(node.right) + 1);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int ret = 0;
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode first = queue.poll();
+                if (first.left != null) {
+                    queue.add(first.left);
+                }
+                if (first.right != null) {
+                    queue.add(first.right);
+                }
+            }
+            ret++;
+        }
+        return ret;
     }
 
     /**
      * 取最小深度（递归）
      *
-     * @param node
+     * @param root
      * @return
      */
-    public int getMinDepth(Node node) {
-        if (node == null) {
+    public int minDepth(TreeNode root) {
+        if (root == null) {
             return 0;
         }
         // 左右孩子都为空的节点才是叶子节点，如果左子树为空，右子树不为空，说明最小深度是 1 + 右子树的深度，反之亦然
         // 当一个左子树为空，右不为空，这时并不是最低点
-        if (node.left == null && node.right != null) {
-            return getMinDepth(node.right) + 1;
+        if (root.left == null && root.right != null) {
+            return minDepth(root.right) + 1;
         }
         // 当一个右子树为空，左不为空，这时并不是最低点
-        if (node.right == null && node.left != null) {
-            return getMinDepth(node.left) + 1;
+        if (root.right == null && root.left != null) {
+            return minDepth(root.left) + 1;
         }
-        return Math.min(getMinDepth(node.left) + 1, getMinDepth(node.right) + 1);
+        return Math.min(minDepth(root.left) + 1, minDepth(root.right) + 1);
     }
 
     public static void main(String[] args) {
-        Node n1 = new Node(1);
-        Node n2 = new Node(2);
-        Node n3 = new Node(3);
-        Node n4 = new Node(4);
-        Node n5 = new Node(5);
-        Node n6 = new Node(6);
+        TreeNode n1 = new TreeNode(1);
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n3 = new TreeNode(3);
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n5 = new TreeNode(5);
+        TreeNode n6 = new TreeNode(6);
         n1.left = n2;
         n1.right = n3;
         //        n2.left = n4;
         //        n2.right = n5;
         n3.left = n6;
         TreeDepth t = new TreeDepth();
-        System.out.println(t.getMaxDepth1(n1));
+        System.out.println(t.maxDepth(n1));
         System.out.println(t.getMaxDepth2(n1));
-        System.out.println(t.getMinDepth(n1));
+        System.out.println(t.minDepth(n1));
     }
 
 }
 
-class Node {
-    int value;
-    Node left;
-    Node right;
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
 
-    public Node(int value) {
-        this.value = value;
+    public TreeNode(int val) {
+        this.val = val;
     }
 }
