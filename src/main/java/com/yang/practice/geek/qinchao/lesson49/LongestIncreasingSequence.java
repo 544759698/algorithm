@@ -1,7 +1,7 @@
 package com.yang.practice.geek.qinchao.lesson49;
 
 /**
- * leetcode 300 最长增长子序列长度（子序列可以不连续）
+ * leetcode300 最长增长子序列长度（子序列可以不连续）
  *
  * @Author: yangguojun01
  * @Date: 2022/1/14
