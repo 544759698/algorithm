@@ -8,7 +8,7 @@ package com.yang.practice.geek.qinchao.lesson49;
  */
 public class LongestIncreasingSequence {
 
-    public int getLis(int[] nums) {
+    public int lengthOfLIS(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }
@@ -18,11 +18,13 @@ public class LongestIncreasingSequence {
         lisLength[0] = 1;
         int max = 1;
         for (int i = 1; i < nums.length; i++) {
+            // TODO 必须赋上初始值1
             lisLength[i] = 1;
             // 该层循环查找前i-1个子序列中的最大值
             for (int j = 0; j < i; j++) {
                 // nums[i]>nums[j]时，nums[i]可以加入子序列，则长度+1
                 if (nums[i] > nums[j]) {
+                    // TODO 转换方程！！！
                     lisLength[i] = Math.max(lisLength[i], lisLength[j] + 1);
                 }
             }
@@ -34,7 +36,7 @@ public class LongestIncreasingSequence {
     public static void main(String[] args) {
         int[] nums = {10, 9, 2, 5, 3, 7, 101, 18, 21}; // 2,3,7,18,21
         LongestIncreasingSequence l = new LongestIncreasingSequence();
-        System.out.println(l.getLis(nums));
+        System.out.println(l.lengthOfLIS(nums));
     }
 
 }
