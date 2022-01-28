@@ -7,13 +7,12 @@ import java.util.List;
 import org.springframework.util.CollectionUtils;
 
 /**
- * leetcode 120 三角形最小路径和，从第一层到最后一层的最小路径和
+ * leetcode120 三角形最小路径和，从第一层到最后一层的最小路径和
  * 2
  * 3 4
  * 6 5 7
  * 4 1 8 3
  * <p>
- * 自底向上找，结果收敛（状态压缩）
  * TODO:还有其他解法，如递归
  *
  * @Author: yangguojun01
@@ -21,18 +20,24 @@ import org.springframework.util.CollectionUtils;
  */
 public class Triangle {
 
-    public int minPath(List<List<Integer>> triangle) {
-        if (CollectionUtils.isEmpty(triangle)) {
-            return 0;
-        }
-        int rowCount = triangle.size();
-        int[][] dp = new int[rowCount + 1][rowCount + 1]; // 底层多铺一层，值全为0
-        for (int i = rowCount - 1; i >= 0; i--) {
-            for (int j = 0; j < triangle.get(i).size(); j++) {
-                dp[i][j] = triangle.get(i).get(j) + Math.min(dp[i + 1][j], dp[i + 1][j + 1]);
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int n = triangle.size();
+        // 记录到[i,j]时的最小路径
+        int[][] dp = new int[n][n];
+        dp[0][0] = triangle.get(0).get(0);
+        for (int i = 1; i < n; i++) {
+            // j=0和j=i时dp只有一个取值，没有状态方程
+            dp[i][0] = dp[i - 1][0] + triangle.get(i).get(0);
+            dp[i][i] = dp[i - 1][i - 1] + triangle.get(i).get(i);
+            for (int j = 1; j < i; j++) {
+                dp[i][j] = Math.min(dp[i - 1][j - 1], dp[i - 1][j]) + triangle.get(i).get(j);
             }
         }
-        return dp[0][0];
+        int minPath = dp[n - 1][0];
+        for (int i = 1; i < n; i++) {
+            minPath = Math.min(minPath, dp[n - 1][i]);
+        }
+        return minPath;
     }
 
     public static void main(String[] args) {
@@ -44,7 +49,7 @@ public class Triangle {
         triangle.add(Arrays.asList(6, 5, 7));
         triangle.add(Arrays.asList(4, 1, 8, 3));
         Triangle t = new Triangle();
-        System.out.println(t.minPath(triangle));
+        System.out.println(t.minimumTotal(triangle));
     }
 
 }

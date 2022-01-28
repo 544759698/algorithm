@@ -1,7 +1,7 @@
 package com.yang.practice.geek.qinchao.lesson45;
 
 /**
- * 爬楼梯，一次只能爬一层或两层，求爬到N层有多少种爬法
+ * leetcode70 爬楼梯，一次只能爬一层或两层，求爬到N层有多少种爬法
  *
  * @Author: yangguojun01
  * @Date: 2022/1/12
