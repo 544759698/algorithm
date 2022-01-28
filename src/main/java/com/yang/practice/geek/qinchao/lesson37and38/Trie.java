@@ -3,7 +3,8 @@ package com.yang.practice.geek.qinchao.lesson37and38;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * 实现一个字典树
+ * leetcode208 实现一个字典树
+ * TODO 待复习 不用TrieNode只用Trie val没有用
  *
  * @Author: yangguojun01
  * @Date: 2022/1/7

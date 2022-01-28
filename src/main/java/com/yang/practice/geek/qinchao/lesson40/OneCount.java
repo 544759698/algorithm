@@ -1,7 +1,7 @@
 package com.yang.practice.geek.qinchao.lesson40;
 
 /**
- * 位1的个数 leetcode 191
+ * leetcode191 位1的个数
  *
  * @Author: yangguojun01
  * @Date: 2022/1/8
@@ -11,9 +11,11 @@ public class OneCount {
     public int getOneCount1(int n) {
         int ret = 0;
         while (n != 0) {
+            // 判断奇偶
             if ((n & 1) == 1) {
                 ret++;
             }
+            // 除2
             n = n >> 1;
         }
         return ret;
