@@ -1,7 +1,7 @@
 package com.yang.practice.geek.qinchao.lesson53and54;
 
 /**
- * leetcode 200 547 并查集
+ * leetcode547 200 并查集
  *
  * @Author: yangguojun01
  * @Date: 2022/1/17
