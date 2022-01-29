@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.Map;
 
 /**
+ * leetcode146 LRUCache
+ *
  * @Author: yangguojun01
  * @Date: 2022/1/21
  */
@@ -50,15 +52,12 @@ public class LRUCache<K, V> {
             cacheMap.put(k, v);
             return;
         }
-        if (keyQueue.size() < capacity) {
-            cacheMap.put(k, v);
-            keyQueue.addLast(k);
-        } else {
+        if (keyQueue.size() >= capacity) {
             K firstK = keyQueue.remove();
             cacheMap.remove(firstK);
-            cacheMap.put(k, v);
-            keyQueue.addLast(k);
         }
+        cacheMap.put(k, v);
+        keyQueue.addLast(k);
     }
 
 }

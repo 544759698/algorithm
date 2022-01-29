@@ -1,7 +1,7 @@
 package com.yang.practice.geek.qinchao.lesson53and54;
 
 /**
- * leetcode547 200 并查集
+ * leetcode547 200 并查集，给定一个连接数组，判断有多少连通的
  *
  * @Author: yangguojun01
  * @Date: 2022/1/17
@@ -24,15 +24,18 @@ public class BingChaJiQA {
 }
 
 class BingChaJi {
-    // 记录连通量
+    /***
+     *记录有连通的数量
+     */
     private int count;
-    // 节点x的根节点是parent[x]
+    /***
+     *节点x的根节点是parent[x]
+     */
     private int[] parent;
 
     public BingChaJi(int n) {
-        // 一开始互不相通
+        // 初始状态，互不相通，每个节点是自己的父节点
         this.count = n;
-        // 一开始每个节点是自己的父节点
         parent = new int[n];
         for (int i = 0; i < n; i++) {
             parent[i] = i;
@@ -40,7 +43,7 @@ class BingChaJi {
     }
 
     /**
-     * 返回某个节点p的根节点
+     * 返回某个节点p的根节点，循环找
      *
      * @param p
      * @return
@@ -68,7 +71,7 @@ class BingChaJi {
     }
 
     /***
-     * 判断p和q是否连通:如果两个节点是连通的，那么他们一定拥有相同的根节点
+     * 判断p和q是否连通：如果两个节点是连通的，那么他们一定拥有相同的根节点
      * @param p
      * @param q
      * @return

@@ -21,7 +21,7 @@ public class ChangeCoin {
         for (int i = 1; i <= amount; i++) {
             int result = -1;
             for (int j = 0; j < coins.length; j++) {
-                // coins[j]可以用且i-coins[j]有解，最终才能有解，然后判断是不是最小硬币数！！！
+                // coins[j]可以用且memo[i-coins[j]]有解，最终才能有解，然后选择最小硬币数
                 if (i - coins[j] >= 0) {
                     int tmp = memo[i - coins[j]];
                     if (tmp != -1 && (result == -1 || (tmp + 1) < result)) {
