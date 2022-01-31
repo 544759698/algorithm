@@ -35,7 +35,7 @@ public class WordSearch {
     }
 
     public void dfs(char[][] board, Trie trie, boolean[][] visited, String str, int i, int j, Set<String> ret) {
-        if (i < 0 || i >= board.length || j < 0 || j >= -board[0].length) {
+        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) {
             return;
         }
         if (visited[i][j]) {
