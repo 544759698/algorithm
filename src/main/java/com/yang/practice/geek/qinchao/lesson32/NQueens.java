@@ -12,7 +12,7 @@ import java.util.Set;
  * @Author: yangguojun01
  * @Date: 2022/1/7
  */
-public class NQueue {
+public class NQueens {
 
     public List<List<String>> solveNQueue(int n) {
         if (n < 1) {
@@ -76,8 +76,8 @@ public class NQueue {
     }
 
     public static void main(String[] args) {
-        NQueue nQueue = new NQueue();
-        List<List<String>> ret = nQueue.solveNQueue(5);
+        NQueens nQueens = new NQueens();
+        List<List<String>> ret = nQueens.solveNQueue(5);
         System.out.println(ret.size());
         System.out.println(ret);
     }
