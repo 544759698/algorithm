@@ -36,27 +36,33 @@ public class MyPow {
     }
 
     /***
-     * 方法二：非递归写法 TODO 不理解
+     * 方法二：非递归写法 TODO 待复习，看注释
      * 参考：https://leetcode-cn.com/problems/powx-n/solution/50-powx-n-kuai-su-mi-fa-by-lelelongwang-2572/
      * @param x
      * @param n
      * @return
      */
     public double myPow2(int x, int n) {
+        // 防止n为负数时-n越界
+        // NT_MAX是2147483647到-2147483648,-(-2147483648)会超出INT_MAX
         long p = n;
-        p = Math.abs(p);
-        double temp = x;
-        double result = 1;
-        while (p > 0) {
-            //如果是奇数
-            if ((p & 1) == 1) {
-                result = result * temp;
-            }
-            temp = temp * temp;
-            //每次指数变为原来的二倍
-            p = p / 2;
+        if (p < 0) {
+            x = 1 / x;
+            p = -p;
         }
-        return n > 0 ? result : 1.0 / result;
+        double ret = 1;
+        while (p > 0) {
+            if ((p & 1) == 1) {
+                // x变化路径为2->4->16... 在此将x升级并乘到结果上，p最小为1，肯定会乘到
+                ret = ret * x;
+                p = p - 1;
+            } else {
+                // 此处只需要将x升级，因为p最小为1，ret最后肯定会乘到
+                x = x * x;
+                p = p / 2;
+            }
+        }
+        return ret;
     }
 
     public static void main(String[] args) {
