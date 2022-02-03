@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- * 获取第K大的数字
+ * leetcode703 获取第K大的数字
  *
  * @Author: yangguojun01
  * @Date: 2021/12/28
