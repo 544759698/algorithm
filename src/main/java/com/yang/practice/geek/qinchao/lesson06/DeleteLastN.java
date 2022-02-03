@@ -2,6 +2,7 @@ package com.yang.practice.geek.qinchao.lesson06;
 
 /**
  * leetcode19 删除倒数第N个节点
+ * TODO 待复习，注意实现细节
  *
  * @Author: yangguojun01
  * @Date: 2021/12/27
@@ -9,6 +10,7 @@ package com.yang.practice.geek.qinchao.lesson06;
 public class DeleteLastN {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        // 细节
         ListNode beforeN = new ListNode(-1);
         ListNode dumpy = beforeN;
         beforeN.next = head;
@@ -20,7 +22,9 @@ public class DeleteLastN {
             }
             head = head.next;
         }
+        // 细节
         beforeN.next = beforeN.next.next;
+        // 细节
         return dumpy.next;
     }
 
