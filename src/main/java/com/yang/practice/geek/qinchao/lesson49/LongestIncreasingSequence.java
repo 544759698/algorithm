@@ -18,7 +18,7 @@ public class LongestIncreasingSequence {
         lisLength[0] = 1;
         int max = 1;
         for (int i = 1; i < nums.length; i++) {
-            // TODO 必须赋上初始值1
+            // TODO 必须赋上初始值1，表示当前选中
             lisLength[i] = 1;
             // 该层循环查找前i-1个子序列中的最大值
             for (int j = 0; j < i; j++) {
