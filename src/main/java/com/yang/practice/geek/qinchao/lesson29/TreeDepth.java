@@ -54,6 +54,7 @@ public class TreeDepth {
 
     /**
      * 取最小深度（递归）
+     * TODO 最小深度还需要理解下
      *
      * @param root
      * @return
