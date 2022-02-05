@@ -5,7 +5,7 @@ import java.util.Queue;
 
 /**
  * leetcode98 判断是否为二叉搜索树，即左子树小于根节点，右子树大于根节点
- * 中序遍历方法，前置节点小于当前节点即可 TODO 待复习
+ * 中序遍历方法，前置节点小于当前节点即可 TODO 待复习，再复习
  *
  * @Author: yangguojun01
  * @Date: 2022/1/2
