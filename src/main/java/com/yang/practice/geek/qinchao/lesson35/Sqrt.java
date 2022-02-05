@@ -1,7 +1,5 @@
 package com.yang.practice.geek.qinchao.lesson35;
 
-import com.yang.practice.geek.qinchao.lesson06.MidNode;
-
 /**
  * leetcode69 求平方根
  *
