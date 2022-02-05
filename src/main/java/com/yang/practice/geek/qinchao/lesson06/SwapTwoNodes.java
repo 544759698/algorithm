@@ -26,6 +26,27 @@ public class SwapTwoNodes {
         return dump.next;
     }
 
+    // 自己写的，好理解的
+    public ListNode swapPairs(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode pre = new ListNode(-1);
+        ListNode dump = pre;
+        ListNode first = head;
+        ListNode second = head.next;
+        while (first != null && second != null) {
+            ListNode tmp = second.next;
+            pre.next = second;
+            second.next = first;
+            first.next = tmp;
+            pre = first;
+            first = tmp;
+            second = tmp == null ? null : tmp.next;
+        }
+        return dump.next;
+    }
+
     public static void main(String[] args) {
         ListNode listNode1 = new ListNode(1);
         ListNode listNode2 = new ListNode(2);
