@@ -1,4 +1,4 @@
-package com.yang.practice.jianzhioffer.qa32treebst;
+package com.yang.practice.jianzhioffer.qa32treebfs;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
