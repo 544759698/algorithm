@@ -1,15 +1,18 @@
 package com.yang.practice.sort;
 
 /**
- * Created by Administrator on 2018/10/17.
+ * 快排
+ *
+ * @Author: yangguojun01
+ * @Date: 2022/2/11
  */
 public class QuickSort {
 
-    public static void quickSort(int[] arr) {
+    public void quickSort(int[] arr) {
         quickSortInternal(arr, 0, arr.length - 1);
     }
 
-    public static void quickSortInternal(int[] arr, int start, int end) {
+    public void quickSortInternal(int[] arr, int start, int end) {
         if (start >= end) {
             return;
         }
@@ -28,7 +31,7 @@ public class QuickSort {
      * @param end
      * @return
      */
-    public static int partition(int[] arr, int start, int end) {
+    public int partition(int[] arr, int start, int end) {
         int pivot = arr[end];
         int i = start;
         for (int j = start; j < end; j++) {
@@ -51,9 +54,10 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] arr = {9, 3, 5, 8, 1, 2, 6};
-        quickSort(arr);
+        QuickSort q = new QuickSort();
+        q.quickSort(arr);
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(String.valueOf(arr[i]) + "->");
+            System.out.print(arr[i] + " ");
         }
     }
 }
