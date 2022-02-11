@@ -2,7 +2,9 @@ package com.yang.practice.sort;
 
 /**
  * 插入排序
- * Created by Administrator on 2018/10/15.
+ *
+ * @Author: yangguojun01
+ * @Date: 2022/2/11
  */
 public class InsertionSort {
 
@@ -14,7 +16,7 @@ public class InsertionSort {
             int tmp = arr[i];
             int j = i - 1;
             for (; j >= 0; j--) {
-                if (tmp < arr[j]) {
+                if (arr[j] > tmp) {
                     arr[j + 1] = arr[j];
                 } else {
                     break;
