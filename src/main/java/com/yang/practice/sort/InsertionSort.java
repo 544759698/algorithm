@@ -1,16 +1,16 @@
 package com.yang.practice.sort;
 
 /**
- * 插入排序
+ * 插入排序，左侧已排好序，插入右侧元素，涉及到数据迁移
  *
  * @Author: yangguojun01
  * @Date: 2022/2/11
  */
 public class InsertionSort {
 
-    public static int[] insertionSort(int[] arr) {
+    public void insertionSort(int[] arr) {
         if (arr == null || arr.length <= 1) {
-            return arr;
+            return;
         }
         for (int i = 1; i < arr.length; i++) {
             int tmp = arr[i];
@@ -24,14 +24,14 @@ public class InsertionSort {
             }
             arr[j + 1] = tmp;
         }
-        return arr;
     }
 
     public static void main(String[] args) {
         int[] arr = {9, 3, 5, 8, 1, 2, 6};
-        arr = insertionSort(arr);
+        InsertionSort in = new InsertionSort();
+        in.insertionSort(arr);
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(String.valueOf(arr[i]) + "->");
+            System.out.print(arr[i] + " ");
         }
     }
 }
