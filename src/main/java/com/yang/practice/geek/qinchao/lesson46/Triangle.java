@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.util.CollectionUtils;
-
 /**
  * leetcode120 三角形最小路径和，从第一层到最后一层的最小路径和
  * 2
