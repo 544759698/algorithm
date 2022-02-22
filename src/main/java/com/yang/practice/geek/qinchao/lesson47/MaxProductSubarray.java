@@ -1,7 +1,5 @@
 package com.yang.practice.geek.qinchao.lesson47;
 
-import java.util.Arrays;
-
 /**
  * leetcode152 最大乘积子数组
  *
@@ -15,17 +13,17 @@ public class MaxProductSubarray {
             return 0;
         }
         // 存储到第i个数的最大值
-        int[] maxF = Arrays.copyOf(nums, nums.length);
+        int[] maxF = new int[nums.length];
         // 存储到第i个数的最小值，因为存在负负得正的情况
-        int[] minF = Arrays.copyOf(nums, nums.length);
+        int[] minF = new int[nums.length];
+        maxF[0] = nums[0];
+        minF[0] = nums[0];
+        int ret = maxF[0];
         for (int i = 1; i < nums.length; i++) {
             // maxF[i - 1] * nums[i], minF[i - 1] * nums[i], nums[i] 三个数比较， nums[i]当之前结果为负，nums[i]>=0时，最大值为nums[i]
             maxF[i] = Math.max(maxF[i - 1] * nums[i], Math.max(nums[i], minF[i - 1] * nums[i]));
             minF[i] = Math.min(minF[i - 1] * nums[i], Math.min(nums[i], maxF[i - 1] * nums[i]));
-        }
-        int ret = maxF[0];
-        for (int j = 1; j < maxF.length; j++) {
-            ret = Math.max(ret, maxF[j]);
+            ret = Math.max(ret, maxF[i]);
         }
         return ret;
     }
