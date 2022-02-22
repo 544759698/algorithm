@@ -2,6 +2,7 @@ package com.yang.practice.geek.qinchao.lesson53and54;
 
 /**
  * leetcode547 200 并查集，给定一个连接数组，判断有多少连通的
+ * UnionFind算法
  *
  * @Author: yangguojun01
  * @Date: 2022/1/17
@@ -24,10 +25,12 @@ public class BingChaJiQA {
 }
 
 class BingChaJi {
+
     /***
      *记录有连通的数量
      */
     private int count;
+
     /***
      *节点x的根节点是parent[x]
      */
