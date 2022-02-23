@@ -10,9 +10,9 @@ package com.yang.practice.geek.qinchao.lesson06;
 public class DeleteLastN {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        // 细节
+        // 细节1
         ListNode beforeN = new ListNode(-1);
-        ListNode dumpy = beforeN;
+        ListNode dummy = beforeN;
         beforeN.next = head;
         int i = 0;
         while (head != null) {
@@ -22,10 +22,10 @@ public class DeleteLastN {
             }
             head = head.next;
         }
-        // 细节
+        // 细节2
         beforeN.next = beforeN.next.next;
-        // 细节
-        return dumpy.next;
+        // 细节3
+        return dummy.next;
     }
 
     public static void main(String[] args) {

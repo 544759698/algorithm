@@ -18,9 +18,9 @@ public class MyStack {
     }
 
     public void push(int x) {
-        // TODO queue重新插入
         int n = queue.size();
         queue.add(x);
+        // TODO queue重新插入
         for (int i = 0; i < n; i++) {
             queue.add(queue.poll());
         }

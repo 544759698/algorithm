@@ -11,9 +11,9 @@ package com.yang.practice.geek.qinchao.lesson06;
 public class SwapTwoNodes {
 
     public ListNode swapTwoNodes(ListNode head) {
-        ListNode dump = new ListNode(-1);
-        dump.next = head;
-        head = dump;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        head = dummy;
         while (head.next != null && head.next.next != null) {
             ListNode n1 = head.next;
             ListNode n2 = head.next.next;
@@ -23,7 +23,7 @@ public class SwapTwoNodes {
             n2.next = n1;
             head = n1;
         }
-        return dump.next;
+        return dummy.next;
     }
 
     // 自己写的，好理解的
