@@ -8,6 +8,7 @@ import java.util.Queue;
 import com.alibaba.fastjson.JSON;
 
 /**
+ * leetcode210
  * 安排课程，eg:{{1}, {3}, {3, 1}, {}}，0依赖1，1依赖3，2依赖3、1，3无依赖
  *
  * @Author: yangguojun01
