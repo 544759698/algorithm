@@ -16,29 +16,42 @@ public class ThreeSum {
 
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ret = new ArrayList<>();
+        if (nums.length < 3) {
+            return ret;
+        }
         Arrays.sort(nums);
-        int third;
         for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                break;
+            }
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
+            // 注释中的方法对于重复值上来就跳过，会错过前两个值相同但第三个值不同的解，如 [-1,-1,2]
+            //            if ((i + 1) < nums.length && nums[i] == nums[i + 1]) {
+            //                continue;
+            //            }
             for (int j = i + 1; j < nums.length; j++) {
+                //                if ((j + 1) < nums.length && nums[j] == nums[j + 1]) {
+                //                    continue;
+                //                }
                 if (j > i + 1 && nums[j] == nums[j - 1]) {
                     continue;
                 }
-                third = nums.length - 1;
-                while (third > j && nums[j] + nums[third] > -nums[i]) {
+                int third = nums.length - 1;
+                while (third > j) {
+                    if (nums[i] + nums[j] + nums[third] == 0) {
+                        List<Integer> retItem = new ArrayList<>();
+                        retItem.add(nums[i]);
+                        retItem.add(nums[j]);
+                        retItem.add(nums[third]);
+                        ret.add(retItem);
+                        break;
+                    }
+                    if (nums[i] + nums[j] + nums[third] < 0) {
+                        break;
+                    }
                     third--;
-                }
-                if (third == j) {
-                    break;
-                }
-                if (nums[j] + nums[third] == -nums[i]) {
-                    List<Integer> item = new ArrayList<>();
-                    item.add(nums[i]);
-                    item.add(nums[j]);
-                    item.add(nums[third]);
-                    ret.add(item);
                 }
             }
         }
