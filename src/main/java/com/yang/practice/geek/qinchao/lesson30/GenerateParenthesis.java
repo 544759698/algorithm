@@ -21,15 +21,17 @@ public class GenerateParenthesis {
     public void generateOneByOne(String sub, int leftAvailable, int rightAvailable, List<String> ret) {
         if (leftAvailable == 0 && rightAvailable == 0) {
             ret.add(sub);
-            return;
         }
         // 先用完(，再回溯
         if (leftAvailable > 0) {
-            generateOneByOne(sub + "(", leftAvailable - 1, rightAvailable, ret);
+            sub = sub + "(";
+            generateOneByOne(sub, leftAvailable - 1, rightAvailable, ret);
+            sub = sub.substring(0, sub.length() - 1);
         }
         // leftAvailable最小为0，rightAvailable必然大于0，否则必然不合法
         if (rightAvailable > leftAvailable) {
-            generateOneByOne(sub + ")", leftAvailable, rightAvailable - 1, ret);
+            sub = sub + ")";
+            generateOneByOne(sub, leftAvailable, rightAvailable - 1, ret);
         }
     }
 
