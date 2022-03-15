@@ -1,4 +1,4 @@
-package com.yang.practice.hot100.qa41MissPos;
+package com.yang.practice.hot100.qa41misspos;
 
 import java.util.HashSet;
 
