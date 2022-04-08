@@ -9,7 +9,6 @@ import java.util.Arrays;
 public class QuickSort {
     public int[] sortArray(int[] nums) {
         partitionSort(nums, 0, nums.length - 1);
-        Arrays.sort(nums);
         return nums;
     }
 
