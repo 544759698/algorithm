@@ -71,4 +71,14 @@ public class MergeSort {
         //返回原数组
         return nums;
     }
+
+    public static void main(String[] args) {
+        int[] nums = {5, 2, 3, 1};
+        MergeSort m = new MergeSort();
+        m.sortArray(nums);
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print(nums[i] + " ");
+        }
+    }
+
 }
