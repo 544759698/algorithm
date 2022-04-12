@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Stack;
 
 /**
+ * 非递归前中后序遍历
+ *
  * @Author: yangguojun01
  * @Date: 2021/12/15
  */
