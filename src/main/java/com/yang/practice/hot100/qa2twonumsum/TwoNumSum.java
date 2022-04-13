@@ -7,24 +7,24 @@ package com.yang.practice.hot100.qa2twonumsum;
 public class TwoNumSum {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode curr = new ListNode(-1);
-        ListNode dump = curr;
-        int toAdd = 0;
+        ListNode dummy = curr;
+        int carry = 0;
         while (l1 != null || l2 != null) {
-            int twoSum = toAdd + (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0);
-            toAdd = twoSum >= 10 ? 1 : 0;
-            curr.next = new ListNode(twoSum % 10);
+            int sum = carry + (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0);
+            carry = sum / 10;
+            curr.next = new ListNode(sum % 10);
+            curr = curr.next;
             if (l1 != null) {
                 l1 = l1.next;
             }
             if (l2 != null) {
                 l2 = l2.next;
             }
-            curr = curr.next;
         }
-        if (toAdd == 1) {
-            curr.next = new ListNode(1);
+        if (carry > 0) {
+            curr.next = new ListNode(carry);
         }
-        return dump.next;
+        return dummy.next;
     }
 }
 
