@@ -11,19 +11,19 @@ public class DeleteLastN {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         // 细节1
-        ListNode beforeN = new ListNode(-1);
-        ListNode dummy = beforeN;
-        beforeN.next = head;
-        int i = 0;
-        while (head != null) {
-            i++;
-            if (i > n) {
-                beforeN = beforeN.next;
-            }
-            head = head.next;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode first = head;
+        ListNode second = dummy;
+        for (int i = 0; i < n; i++) {
+            first = first.next;
+        }
+        while (first != null) {
+            first = first.next;
+            second = second.next;
         }
         // 细节2
-        beforeN.next = beforeN.next.next;
+        second.next = second.next.next;
         // 细节3
         return dummy.next;
     }
