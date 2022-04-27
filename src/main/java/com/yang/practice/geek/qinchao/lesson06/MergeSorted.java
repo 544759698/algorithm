@@ -9,7 +9,7 @@ package com.yang.practice.geek.qinchao.lesson06;
 public class MergeSorted {
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        // TODO 添加一个哨兵节点，省很多代码
+        // 添加一个哨兵节点，省很多代码
         ListNode prev = new ListNode(-1);
         ListNode dummy = prev;
         while (list1 != null && list2 != null) {
