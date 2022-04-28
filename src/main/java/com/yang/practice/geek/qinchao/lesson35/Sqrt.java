@@ -27,14 +27,7 @@ public class Sqrt {
         //        return (int) (left + right) / 2;
     }
 
-    public static void main(String[] args) {
-        Sqrt s = new Sqrt();
-        System.out.println(s.mySqrt(36));
-    }
-}
-
-class Solution {
-    public int mySqrt(int x) {
+    public int mySqrt1(int x) {
         int l = 0, r = x, ans = -1;
         while (l <= r) {
             int mid = l + (r - l) / 2;
@@ -46,6 +39,11 @@ class Solution {
             }
         }
         return ans;
+    }
+
+    public static void main(String[] args) {
+        Sqrt s = new Sqrt();
+        System.out.println(s.mySqrt(36));
     }
 }
 

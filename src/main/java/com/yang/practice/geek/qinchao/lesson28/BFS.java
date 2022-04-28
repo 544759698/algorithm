@@ -21,7 +21,7 @@ public class BFS {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
-            // TODO queue的size就是每层的节点数
+            // queue的size就是每层的节点数
             int levelSize = queue.size();
             List<Integer> levelRet = new ArrayList<>();
             for (int i = 0; i < levelSize; i++) {
