@@ -23,14 +23,17 @@ public class Triangle {
         // 记录到[i,j]时的最小路径
         int[][] dp = new int[n][n];
         dp[0][0] = triangle.get(0).get(0);
+        // 遍历行
         for (int i = 1; i < n; i++) {
             // j=0和j=i时dp只有一个取值，没有状态方程
             dp[i][0] = dp[i - 1][0] + triangle.get(i).get(0);
             dp[i][i] = dp[i - 1][i - 1] + triangle.get(i).get(i);
+            // 遍历行内元素
             for (int j = 1; j < i; j++) {
                 dp[i][j] = Math.min(dp[i - 1][j - 1], dp[i - 1][j]) + triangle.get(i).get(j);
             }
         }
+        // 取最小值
         int minPath = dp[n - 1][0];
         for (int i = 1; i < n; i++) {
             minPath = Math.min(minPath, dp[n - 1][i]);

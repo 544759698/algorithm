@@ -20,7 +20,8 @@ public class MaxProductSubarray {
         minF[0] = nums[0];
         int ret = maxF[0];
         for (int i = 1; i < nums.length; i++) {
-            // maxF[i - 1] * nums[i], minF[i - 1] * nums[i], nums[i] 三个数比较， nums[i]当之前结果为负，nums[i]>=0时，最大值为nums[i]
+            // maxF[i - 1] * nums[i], minF[i - 1] * nums[i], nums[i] 三个数比较
+            // nums[i]当之前结果为负，nums[i]>=0时，最大值为nums[i]
             maxF[i] = Math.max(maxF[i - 1] * nums[i], Math.max(nums[i], minF[i - 1] * nums[i]));
             minF[i] = Math.min(minF[i - 1] * nums[i], Math.min(nums[i], maxF[i - 1] * nums[i]));
             ret = Math.max(ret, maxF[i]);

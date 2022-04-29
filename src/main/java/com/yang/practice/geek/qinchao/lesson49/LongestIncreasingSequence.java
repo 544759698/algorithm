@@ -14,21 +14,21 @@ public class LongestIncreasingSequence {
         }
         // lisLength[i] => 到第i个元素子序列长度，注意：第i个元素必选
         // 在计算lisLength[i]之前，我们已经计算出lisLength[0…i−1]的值
-        int[] lisLength = new int[nums.length];
-        lisLength[0] = 1;
+        int[] lisDp = new int[nums.length];
+        lisDp[0] = 1;
         int max = 1;
         for (int i = 1; i < nums.length; i++) {
             // TODO 必须赋上初始值1，表示当前选中
-            lisLength[i] = 1;
+            lisDp[i] = 1;
             // 该层循环查找前i-1个子序列中的最大值
             for (int j = 0; j < i; j++) {
                 // nums[i]>nums[j]时，nums[i]可以加入子序列，则长度+1
                 if (nums[i] > nums[j]) {
                     // TODO 转换方程！！！
-                    lisLength[i] = Math.max(lisLength[i], lisLength[j] + 1);
+                    lisDp[i] = Math.max(lisDp[i], lisDp[j] + 1);
                 }
             }
-            max = Math.max(max, lisLength[i]);
+            max = Math.max(max, lisDp[i]);
         }
         return max;
     }
