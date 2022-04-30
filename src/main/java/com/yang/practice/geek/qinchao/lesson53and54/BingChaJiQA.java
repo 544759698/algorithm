@@ -27,12 +27,12 @@ public class BingChaJiQA {
 class BingChaJi {
 
     /***
-     *记录有连通的数量
+     * 记录有连通的数量
      */
     private int count;
 
     /***
-     *节点x的根节点是parent[x]
+     * 节点x的根节点是parent[x]，整形数组！
      */
     private int[] parent;
 
