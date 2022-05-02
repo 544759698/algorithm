@@ -10,6 +10,7 @@ public class TwoNumSum {
         ListNode dummy = curr;
         int carry = 0;
         while (l1 != null || l2 != null) {
+            // 两节点非空判断
             int sum = carry + (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0);
             carry = sum / 10;
             curr.next = new ListNode(sum % 10);
