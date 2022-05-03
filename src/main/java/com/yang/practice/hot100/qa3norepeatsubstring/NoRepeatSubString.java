@@ -1,6 +1,6 @@
 package com.yang.practice.hot100.qa3norepeatsubstring;
 
-import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * TODO 不是最优解
@@ -10,35 +10,26 @@ import java.util.HashMap;
  */
 public class NoRepeatSubString {
     public int lengthOfLongestSubstring(String s) {
-        if (s == null || s == "") {
-            return 0;
-        }
-        char[] sArr = s.toCharArray();
-        int i = 0;
         int maxLength = 0;
-        while (i < sArr.length) {
-            HashMap<Character, Integer> appeared = new HashMap<>();
-            appeared.put(sArr[i], i);
-            int j = i + 1;
-            while (j < sArr.length) {
-                if (!appeared.containsKey(sArr[j])) {
-                    appeared.put(sArr[j], j);
-                    j++;
-                } else {
-                    maxLength = Math.max(maxLength, j - i);
+        if (s == null || s.length() == 0) {
+            return maxLength;
+        }
+        HashSet<Character> appeared = new HashSet<>();
+        for (int i = 0; i < s.length(); i++) {
+            appeared.clear();
+            appeared.add(s.charAt(i));
+            for (int j = i + 1; j < s.length(); j++) {
+                if (appeared.contains(s.charAt(j))) {
                     break;
                 }
+                appeared.add(s.charAt(j));
             }
-            if (j == sArr.length) {
-                maxLength = Math.max(maxLength, j - i);
-                break;
-            } else {
-                i = appeared.get(sArr[j]) + 1;
-            }
+            maxLength = Math.max(maxLength, appeared.size());
         }
-
         return maxLength;
     }
+
+    // TODO 考虑滑动窗口
 
     public static void main(String[] args) {
         NoRepeatSubString n = new NoRepeatSubString();
