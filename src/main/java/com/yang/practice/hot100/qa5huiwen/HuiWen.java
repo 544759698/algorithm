@@ -31,6 +31,8 @@ public class HuiWen {
         return right - left - 1;
     }
 
+    // 倾向于填充法，容易理解
+
     public static void main(String[] args) {
         HuiWen h = new HuiWen();
         System.out.println(h.longestPalindrome("cbbd"));

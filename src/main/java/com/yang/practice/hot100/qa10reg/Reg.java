@@ -1,7 +1,8 @@
 package com.yang.practice.hot100.qa10reg;
 
 /**
- * TODO dp
+ * TODO dp 先略过
+ *
  * @Author: yangguojun01
  * @Date: 2022/3/3
  */
@@ -36,7 +37,7 @@ public class Reg {
                 }
                 i = k;
                 j++;
-                while (j<p.length()&&p.charAt(j)==p.charAt(j-2)){
+                while (j < p.length() && p.charAt(j) == p.charAt(j - 2)) {
                     j++;
                 }
             } else {
