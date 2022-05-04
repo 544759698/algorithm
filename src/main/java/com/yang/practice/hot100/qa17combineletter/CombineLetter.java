@@ -38,7 +38,6 @@ public class CombineLetter {
                 sb.deleteCharAt(idx);
             }
         }
-
     }
 
 }
