@@ -14,6 +14,29 @@ public class GenerateParenthesis {
 
     public List<String> generateParenthesis(int n) {
         List<String> ret = new ArrayList<>();
+        generateOne(ret, n, n, new StringBuilder());
+        return ret;
+    }
+
+    public void generateOne(List<String> ret, int leftAvail, int rightAvail, StringBuilder sb) {
+        if (leftAvail == 0 && rightAvail == 0) {
+            ret.add(sb.toString());
+            return;
+        }
+        if (leftAvail > 0) {
+            sb.append("(");
+            generateOne(ret, leftAvail - 1, rightAvail, sb);
+            sb.deleteCharAt(sb.length() - 1);
+        }
+        if (rightAvail > leftAvail) {
+            sb.append(")");
+            generateOne(ret, leftAvail, rightAvail - 1, sb);
+            sb.deleteCharAt(sb.length() - 1);
+        }
+    }
+
+    public List<String> generateParenthesis1(int n) {
+        List<String> ret = new ArrayList<>();
         generateOneByOne("", n, n, ret);
         return ret;
     }
@@ -32,6 +55,7 @@ public class GenerateParenthesis {
         if (rightAvailable > leftAvailable) {
             sub = sub + ")";
             generateOneByOne(sub, leftAvailable, rightAvailable - 1, ret);
+            sub = sub.substring(0, sub.length() - 1);
         }
     }
 
