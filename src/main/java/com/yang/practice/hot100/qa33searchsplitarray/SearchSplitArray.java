@@ -1,7 +1,6 @@
 package com.yang.practice.hot100.qa33searchsplitarray;
 
 /**
- * TODO NEXT
  *
  * @Author: yangguojun01
  * @Date: 2022/3/1
@@ -16,6 +15,7 @@ public class SearchSplitArray {
         }
         int left = 0;
         int right = nums.length - 1;
+        // 二分法找到断点
         while (left < right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] > nums[right]) {
