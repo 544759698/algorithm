@@ -1,6 +1,5 @@
 package com.yang.practice.hot100.qa75colorclassify;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 /**
