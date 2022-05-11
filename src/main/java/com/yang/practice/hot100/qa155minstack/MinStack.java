@@ -1,6 +1,5 @@
 package com.yang.practice.hot100.qa155minstack;
 
-import java.util.PriorityQueue;
 import java.util.Stack;
 
 /**
@@ -9,30 +8,30 @@ import java.util.Stack;
  */
 public class MinStack {
 
-    private PriorityQueue<Integer> queue = null;
-    private Stack<Integer> stack = null;
+    Stack<Integer> eleStack;
+    Stack<Integer> minStack;
 
     public MinStack() {
-        queue = new PriorityQueue<>();
-        stack = new Stack<>();
+        eleStack = new Stack<>();
+        minStack = new Stack<>();
+        minStack.push(Integer.MAX_VALUE);
     }
 
     public void push(int val) {
-        queue.offer(val);
-        stack.push(val);
+        eleStack.push(val);
+        minStack.push(Math.min(minStack.peek(), val));
     }
 
     public void pop() {
-        int top = stack.pop();
-        queue.remove(top);
+        eleStack.pop();
+        minStack.pop();
     }
 
     public int top() {
-        return stack.peek();
+        return eleStack.peek();
     }
 
     public int getMin() {
-        return queue.peek();
+        return minStack.peek();
     }
-
 }
