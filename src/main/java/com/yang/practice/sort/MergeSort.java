@@ -11,12 +11,10 @@ public class MergeSort {
     //归并排序
     public int[] sortArray(int[] nums) {
         return mergeSort(nums, 0, nums.length - 1);
-
     }
 
     public int[] mergeSort(int[] nums, int left, int right) {
-        //递归退出条件
-        //如果左指针大于右指针，就退出循环
+        //递归退出条件：如果左指针大于右指针，就退出循环
         //经过左右拆分，数组元素形成单个元素的树
         if (left >= right) {
             return nums;
