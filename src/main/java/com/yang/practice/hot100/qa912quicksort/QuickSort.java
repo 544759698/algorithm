@@ -32,6 +32,7 @@ public class QuickSort {
                 i++;
             }
         }
+        // 这里不能漏
         swap(nums, i, right);
         return i;
     }

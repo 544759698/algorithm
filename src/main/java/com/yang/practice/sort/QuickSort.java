@@ -16,7 +16,6 @@ public class QuickSort {
         if (start >= end) {
             return;
         }
-
         int end_pos = partition(arr, start, end);
         quickSortInternal(arr, start, end_pos - 1);
         quickSortInternal(arr, end_pos + 1, end);
@@ -37,19 +36,20 @@ public class QuickSort {
         for (int j = start; j < end; j++) {
             if (arr[j] < pivot) {
                 if (i != j) {
-                    int tmp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = tmp;
+                    swap(arr, i, j);
                 }
                 i++;
             }
         }
-
-        int tmp = arr[i];
-        arr[i] = arr[end];
-        arr[end] = tmp;
-
+        // 这里不能漏
+        swap(arr, i, end);
         return i;
+    }
+
+    public void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     public static void main(String[] args) {
