@@ -1,5 +1,6 @@
 package com.yang.practice.hot100.qa160intersectionlist;
 
+import java.util.HashSet;
 import java.util.Stack;
 
 /**
@@ -7,7 +8,23 @@ import java.util.Stack;
  * @Date: 2022/3/3
  */
 public class IntersectionList {
+
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        HashSet<ListNode> appeared = new HashSet<>();
+        while (headA != null) {
+            appeared.add(headA);
+            headA = headA.next;
+        }
+        while (headB != null) {
+            if (appeared.contains(headB)) {
+                return headB;
+            }
+            headB = headB.next;
+        }
+        return null;
+    }
+
+    public ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
         Stack<ListNode> s1 = new Stack<>();
         Stack<ListNode> s2 = new Stack<>();
         ListNode ret = null;
