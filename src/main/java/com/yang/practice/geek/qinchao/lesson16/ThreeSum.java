@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * leetcode 15 1 三数之和
  * TODO 待复习，三数之和返回不重复的三元组
+ *  a + b + c = 0
  *
  * @Author: yangguojun01
  * @Date: 2021/12/30
