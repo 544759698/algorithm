@@ -5,30 +5,50 @@ package com.yang.practice.jianzhioffer.qa04findinarr;
  * @Date: 2022/2/14
  */
 public class FindInArr {
+
+    /***
+     * 思路错误
+     *  [[1,2,3,4,5],
+     *  [6,7,8,9,10],
+     * [11,12,13,14,15],
+     * [16,17,18,19,20],
+     * [21,22,23,24,25]]
+     * 19
+     * @param matrix
+     * @param target
+     * @return
+     */
     public boolean findNumberIn2DArray1(int[][] matrix, int target) {
-        int rowLeft = 0;
-        int rowRight = matrix.length - 1;
-        while (rowLeft < rowRight) {
-            int mid = rowLeft + (rowRight - rowLeft) / 2;
-            if (matrix[0][mid] < target) {
-                rowLeft = mid + 1;
-            } else if (matrix[0][mid] > target) {
-                rowRight = mid - 1;
-            } else {
-                return true;
-            }
-        }
-        if (rowLeft < 0) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return false;
         }
-        int colMin = 0;
-        int colMax = matrix[rowLeft].length - 1;
-        while (colMin < colMax) {
-            int mid = colMin + (colMax - colMin) / 2;
-            if (matrix[rowLeft][mid] < target) {
-                colMin = mid + 1;
-            } else if (matrix[rowLeft][mid] > target) {
-                colMax = mid;
+        int targetCol = -1;
+        for (int i = 0; i < matrix[0].length; i++) {
+            if (matrix[0][i] == target || (i + 1 < matrix[0].length && matrix[0][i + 1] == target)) {
+                return true;
+            }
+            if (matrix[0][i] > target) {
+                break;
+            }
+            if (matrix[0][i] < target && (i + 1 < matrix[0].length && matrix[0][i + 1] > target)) {
+                targetCol = i;
+                break;
+            }
+            if (i == matrix[0].length - 1 && matrix[0][i] < target) {
+                targetCol = i;
+            }
+        }
+        if (targetCol < 0) {
+            return false;
+        }
+        int rowMin = 0;
+        int rowMax = matrix.length - 1;
+        while (rowMin <= rowMax) {
+            int mid = rowMin + (rowMax - rowMin) / 2;
+            if (matrix[mid][targetCol] < target) {
+                rowMin = mid + 1;
+            } else if (matrix[mid][targetCol] > target) {
+                rowMax = mid - 1;
             } else {
                 return true;
             }
@@ -36,36 +56,39 @@ public class FindInArr {
         return false;
     }
 
+    // 这个才是正解！！！
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return false;
         }
-        int i = 0;
-        int j = matrix[0].length - 1;
-        while (i < matrix.length && j >= 0) {
-            int num = matrix[i][j];
+        int row = 0;
+        int col = matrix[0].length - 1;
+        while (row < matrix.length && col >= 0) {
+            int num = matrix[row][col];
             if (num == target) {
                 return true;
             }
             if (num < target) {
-                i++;
+                row++;
             } else {
-                j--;
+                col--;
             }
         }
         return false;
     }
 
     public static void main(String[] args) {
-        int[][] matrix = {
-                {1, 4, 7, 11, 15},
-                {2, 5, 8, 12, 19},
-                {3, 6, 9, 16, 22},
-                {10, 13, 14, 17, 24},
-                {18, 21, 23, 26, 30}
-        };
+        //        int[][] matrix = {
+        //                {1, 4, 7, 11, 15},
+        //                {2, 5, 8, 12, 19},
+        //                {3, 6, 9, 16, 22},
+        //                {10, 13, 14, 17, 24},
+        //                {18, 21, 23, 26, 30}
+        //        };
+        //                int[][] matrix = {{-1, 3}};
+        int[][] matrix = {{5}, {6}};
         FindInArr f = new FindInArr();
-        boolean ret = f.findNumberIn2DArray(matrix, 5);
+        boolean ret = f.findNumberIn2DArray1(matrix, 6);
         System.out.println(ret);
     }
 
