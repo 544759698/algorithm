@@ -7,7 +7,7 @@ package com.yang.practice.jianzhioffer.qa04findinarr;
 public class FindInArr {
 
     /***
-     * 思路错误
+     * 思路错误，找19，在4那一列，不在5那一列，所以不能用二分法找
      *  [[1,2,3,4,5],
      *  [6,7,8,9,10],
      * [11,12,13,14,15],
