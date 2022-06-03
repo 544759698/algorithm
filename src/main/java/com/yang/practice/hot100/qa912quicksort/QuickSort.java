@@ -1,7 +1,5 @@
 package com.yang.practice.hot100.qa912quicksort;
 
-import java.util.Arrays;
-
 /**
  * @Author: yangguojun01
  * @Date: 2022/4/7

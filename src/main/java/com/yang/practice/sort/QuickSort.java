@@ -23,8 +23,9 @@ public class QuickSort {
 
     /***
      * 1.以最后一个元素为基准，获取分区点（找到最后一个元素的位置）
-     * 2.找第K大元素可以用此方法，返回值为K-1时，及找到元素，返回值小于K时，从返回值到结尾处找，大于K时，从开头到返回值处找
-     * 3.这样时间复杂度为O(n)  n+n/2+n/4+n/8+…+1=2n-1
+     * 2.两个指针，一个指向当前第一个比基准值大的数，另一个遍历数组寻找比基准值小的数，找到后交换
+     * 3.最后第一个指针数与基准值交换
+     * 4.返回第一个指针，此值为分区点
      * @param arr
      * @param start
      * @param end
@@ -32,6 +33,7 @@ public class QuickSort {
      */
     public int partition(int[] arr, int start, int end) {
         int pivot = arr[end];
+        // 当前第一个比pivot大的数，i=start时除外
         int i = start;
         for (int j = start; j < end; j++) {
             if (arr[j] < pivot) {
