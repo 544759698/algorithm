@@ -21,12 +21,18 @@ public class BuildTree {
         if (preLeft > preRight || inLeft > inRight) {
             return null;
         }
+        // 前序遍历中根节点索引
         int preorderRoot = preLeft;
+        // 中序遍历中根节点索引
         int inorderRoot = inorderMap.get(preorder[preorderRoot]);
+        // 找到根节点
         TreeNode root = new TreeNode(inorder[inorderRoot]);
+        // 左子树长度
         int leftSize = inorderRoot - inLeft;
+        // 重建左子树
         root.left = myBuildTree(preorder, inorder, inorderMap,
                 preLeft + 1, preLeft + leftSize, inLeft, inorderRoot - 1);
+        // 重建右子树
         root.right = myBuildTree(preorder, inorder, inorderMap,
                 preLeft + leftSize + 1, preRight, inorderRoot + 1, inRight);
         return root;
