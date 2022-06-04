@@ -8,6 +8,7 @@ public class OneCount {
     public int hammingWeight(int n) {
         int ret = 0;
         while (n != 0) {
+            // 打掉最后一个1
             n = n & (n - 1);
             ret++;
         }
