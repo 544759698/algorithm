@@ -9,10 +9,10 @@ public class OddEven {
         int i = 0;
         int j = nums.length - 1;
         while (i < j) {
-            while (i < nums.length && (nums[i] & 1) == 1) {
+            while (i < nums.length && isOdd(nums[i])) {
                 i++;
             }
-            while (j >= 0 && (nums[j] & 1) == 0) {
+            while (j >= 0 && !isOdd(nums[j])) {
                 j--;
             }
             if (i < j && i < nums.length && j >= 0) {
@@ -25,4 +25,9 @@ public class OddEven {
         }
         return nums;
     }
+
+    private boolean isOdd(int num) {
+        return (num & 1) == 1;
+    }
+
 }
