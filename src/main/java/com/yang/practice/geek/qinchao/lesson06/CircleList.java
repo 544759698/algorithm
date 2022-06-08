@@ -22,6 +22,11 @@ public class CircleList {
         return false;
     }
 
+    // TODO 找到链表中环的入口节点 https://leetcode.cn/problems/c32eOV/
+    // 1.先判断链表中是否有环，利用快慢指针返回环上某一个节点
+    // 2.快慢指针找出环的长度，快指针先走到步骤1里返回的节点，然后快慢指针依次遍历直到相遇，得出环的长度
+    // 3.快指针先走环的长度的步数，然后快慢指针同步走直到相遇，相遇节点为环的入口
+
     public static void main(String[] args) {
         ListNode listNode1 = new ListNode(1);
         ListNode listNode2 = new ListNode(2);
