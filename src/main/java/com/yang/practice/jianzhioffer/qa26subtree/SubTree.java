@@ -1,6 +1,7 @@
 package com.yang.practice.jianzhioffer.qa26subtree;
 
 /**
+ * TODO 值得背下来
  * @Author: yangguojun01
  * @Date: 2022/2/7
  */
@@ -10,17 +11,17 @@ public class SubTree {
         if (A == null || B == null) {
             return false;
         }
-        return helper(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
+        return checkTrees(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
     }
 
-    private boolean helper(TreeNode a, TreeNode b) {
+    private boolean checkTrees(TreeNode a, TreeNode b) {
         if (b == null) {
             return true;
         }
         if (a == null || a.val != b.val) {
             return false;
         }
-        return helper(a.left, b.left) && helper(a.right, b.right);
+        return checkTrees(a.left, b.left) && checkTrees(a.right, b.right);
     }
 }
 
