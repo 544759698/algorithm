@@ -22,11 +22,10 @@ public class TreeToList {
             return;
         }
         inOrder(curr.left);
-        if (head == null) {
-            head = curr;
-        }
         if (pre != null) {
             pre.right = curr;
+        } else {
+            head = curr;
         }
         curr.left = pre;
         pre = curr;
