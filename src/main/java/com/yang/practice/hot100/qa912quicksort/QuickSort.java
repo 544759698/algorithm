@@ -22,7 +22,9 @@ public class QuickSort {
     public int getPivotIdx(int[] nums, int left, int right) {
         int pivot = nums[right];
         int i = left;
+        // j<right而不是right-1，因为right本身就是右边界的索引
         for (int j = left; j < right; j++) {
+            // 注意这里两个if判断，要小于pivot且两个不是同一个数才交换
             if (nums[j] < pivot) {
                 if (i != j) {
                     swap(nums, i, j);
