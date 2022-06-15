@@ -10,18 +10,8 @@ public class MaxSumSeq {
         memo[0] = nums[0];
         int max = memo[0];
         for (int i = 1; i < nums.length; i++) {
-            memo[i] = Integer.MIN_VALUE;
-            if (memo[i - 1] > 0 && nums[i] <= 0) {
-                memo[i] = memo[i - 1];
-                continue;
-            }
-            for (int j = 0; j <= i; j++) {
-                int jSum = sum(nums, j, i);
-                memo[i] = Math.max(jSum, memo[i]);
-            }
-        }
-
-        for (int i = 1; i < memo.length; i++) {
+            // 分成两端 memo[i - 1] + nums[i] 和 nums[i]
+            memo[i] = Math.max(memo[i - 1] + nums[i], nums[i]);
             max = Math.max(max, memo[i]);
         }
         return max;
