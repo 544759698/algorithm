@@ -10,7 +10,7 @@ public class MaxSumSeq {
         memo[0] = nums[0];
         int max = memo[0];
         for (int i = 1; i < nums.length; i++) {
-            // 分成两端 memo[i - 1] + nums[i] 和 nums[i]
+            // 分成两段 memo[i - 1] + nums[i] 和 nums[i]
             memo[i] = Math.max(memo[i - 1] + nums[i], nums[i]);
             max = Math.max(max, memo[i]);
         }
