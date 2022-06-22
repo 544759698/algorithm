@@ -6,6 +6,7 @@ package com.yang.practice.jianzhioffer.qa51reversepair;
  */
 public class ReversePair {
 
+    // TODO 尝试下归并排序
     public int reversePairs(int[] nums) {
         int ret = 0;
         for (int i = 0; i < nums.length - 1; i++) {
