@@ -33,7 +33,7 @@ public class QuickSort {
      */
     public int partition(int[] arr, int start, int end) {
         int pivot = arr[end];
-        // 当前第一个比pivot大的数，i=start时除外
+        // 当前顺序上第一个比pivot大的数，i=start时除外
         int i = start;
         for (int j = start; j < end; j++) {
             if (arr[j] < pivot) {
