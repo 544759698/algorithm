@@ -9,13 +9,11 @@ import java.util.HashSet;
 public class RepeatNum {
     public int findRepeatNumber(int[] nums) {
         HashSet<Integer> set = new HashSet<>();
-        int ret = -1;
         for (int i = 0; i < nums.length; i++) {
             if (!set.add(nums[i])) {
-                ret = nums[i];
-                return ret;
+                return nums[i];
             }
         }
-        return ret;
+        return -1;
     }
 }

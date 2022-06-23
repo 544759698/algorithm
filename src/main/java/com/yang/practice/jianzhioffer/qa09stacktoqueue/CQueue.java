@@ -7,7 +7,6 @@ import java.util.Stack;
  * @Date: 2022/2/12
  */
 public class CQueue {
-
     Stack<Integer> in, out;
 
     public CQueue() {
@@ -30,4 +29,5 @@ public class CQueue {
         }
         return out.pop();
     }
+
 }
