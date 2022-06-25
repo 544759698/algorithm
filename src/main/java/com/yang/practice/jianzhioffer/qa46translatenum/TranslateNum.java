@@ -1,6 +1,8 @@
 package com.yang.practice.jianzhioffer.qa46translatenum;
 
 /**
+ * TODO 需要复习
+ *
  * @Author: yangguojun01
  * @Date: 2022/6/18
  */
@@ -33,7 +35,8 @@ public class TranslateNum {
     public int translateNum1(int num) {
         String strNum = String.valueOf(num);
         int[] dp = new int[strNum.length() + 1];
-        dp[0] = 1; // eg:num=12,dp[2]=2
+        // eg:num=12,dp[2]=2
+        dp[0] = 1;
         dp[1] = 1;
         for (int i = 2; i < strNum.length() + 1; i++) {
             int tmp = (strNum.charAt(i - 2) - '0') * 10 + (strNum.charAt(i - 1) - '0');
