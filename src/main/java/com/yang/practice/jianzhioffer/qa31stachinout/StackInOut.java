@@ -11,7 +11,7 @@ public class StackInOut {
         Stack<Integer> stack = new Stack<>();
         int popIdx = 0;
         for (int i = 0; i < pushed.length; i++) {
-            // 这一段好像不需要
+            // 这一段其实不需要
             while (!stack.isEmpty() && popped[popIdx] == stack.peek()) {
                 stack.pop();
                 popIdx++;
