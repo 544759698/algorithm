@@ -6,12 +6,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * TODO 需要复习 递归+回溯
+ *
  * @Author: yangguojun01
  * @Date: 2022/2/10
  */
 public class TreePathSum {
 
     List<List<Integer>> ret = new ArrayList<>();
+    // 通过队列offer和poll回溯
     Deque<Integer> path = new LinkedList<>();
 
     public List<List<Integer>> pathSum(TreeNode root, int target) {
