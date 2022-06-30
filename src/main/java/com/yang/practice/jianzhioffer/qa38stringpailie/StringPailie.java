@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * TODO 需要练习
+ * TODO 需要练习 1
  * @Author: yangguojun01
  * @Date: 2022/6/12
  */
@@ -37,7 +37,7 @@ public class StringPailie {
              *  s[j-1]==s[j]即表示两个字符chr是相等的；
              *  若vis[j-1]为true表示新字符串的前面位置使用了s[j-1],即s[j-1]同s[j]不会出现在相同位置中,chr可再出现,s[j]可使用;
              *  vis[j-1]为false表示，相同字符chr未使用，相同字符避免重复都使用第一个出现该字符的下标数组值即s[j-1]。
-             *  所以两字符相同，且前方s[j-1]未出现时，s[j]不可使用。
+             *  所以两字符相同，且前方s[j-1]未出现时，s[j]不可使用!!!
              *
              * 简单说明：字符串相同位置使用相同字符，为避免重复必定使用第一个出现的该字符的下标
              */
