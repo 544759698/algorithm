@@ -43,10 +43,10 @@ public class MatrixPath {
     }
 
     public static void main(String[] args) {
-        //        char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
-        //        String word = "ABCCEDFFF";
-        char[][] board = {{'a'}, {'a'}};
-        String word = "aaa";
+        char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
+        String word = "ABCB";
+        //        char[][] board = {{'a'}, {'a'}};
+        //        String word = "aaa";
         MatrixPath mp = new MatrixPath();
         System.out.println(mp.exist(board, word));
     }
