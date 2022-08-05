@@ -15,6 +15,8 @@ public class TrapRain {
                 if (height[left] > leftMax) {
                     leftMax = height[left];
                 } else {
+                    // 此时right指针已指到rightMax的位置，
+                    // rightMax > leftMax且height[left] < height[right]，所以用leftMax - height[left]
                     area += leftMax - height[left];
                 }
                 left++;
