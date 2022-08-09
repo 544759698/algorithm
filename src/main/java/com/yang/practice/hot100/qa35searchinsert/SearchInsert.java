@@ -5,6 +5,8 @@ package com.yang.practice.hot100.qa35searchinsert;
  * @Date: 2022/8/9
  */
 public class SearchInsert {
+
+    // 标准二分法解法即可
     public int searchInsert(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
