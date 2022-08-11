@@ -23,7 +23,9 @@ public class CombineSum {
             ret.add(new ArrayList<>(ans));
             return;
         }
+        // 直接跳过
         dfs(candidates, idx + 1, ret, ans, target);
+        // 选择当前数
         if (target - candidates[idx] >= 0) {
             ans.add(candidates[idx]);
             dfs(candidates, idx, ret, ans, target - candidates[idx]);
