@@ -33,6 +33,8 @@ public class BinarySearchTree1 {
         // return isValidBST(root.right);
     }
 
+    // 思路，中序遍历为升序容易理解
+
     public static void main(String[] args) {
         TreeNode n1 = new TreeNode(2);
         n1.left = new TreeNode(1);
