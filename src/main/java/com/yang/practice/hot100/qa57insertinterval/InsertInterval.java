@@ -51,6 +51,11 @@ public class InsertInterval {
                 }
             }
         } else if (firstIn == -1 && lastIn != -1) {
+            for (int i = 0; i < lastIn; i++) {
+                if (intervals[i][1] < newInterval[0]) {
+                    ret.add(intervals[i]);
+                }
+            }
             ret.add(new int[] {newInterval[0], intervals[lastIn][1]});
             for (int i = lastIn + 1; i < intervals.length; i++) {
                 ret.add(intervals[i]);
