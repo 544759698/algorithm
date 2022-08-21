@@ -6,13 +6,15 @@ package com.yang.practice.hot100.qa198stealgold;
  */
 public class StealGold {
     public int rob(int[] nums) {
-        int[] memo = new int[nums.length];
-        memo[1] = nums[0];
-        int max = memo[1];
-        for (int i = 1; i < nums.length; i++) {
-            memo[i + 1] = Math.max(memo[i - 1] + nums[i], memo[i]);
-            max = Math.max(max, memo[i + 1]);
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        if (dp.length <= 1) {
+            return dp[0];
         }
-        return max;
+        dp[1] = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < nums.length; i++) {
+            dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
+        }
+        return dp[dp.length - 1];
     }
 }
