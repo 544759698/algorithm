@@ -1,8 +1,6 @@
 package com.yang.practice.hot100.qa14longestcommon;
 
 /**
- * TODO 看题解再优化
- *
  * @Author: yangguojun01
  * @Date: 2022/5/21
  */
