@@ -8,25 +8,18 @@ package com.yang.practice.hot100.qa14longestcommon;
  */
 public class LongestCommonPrefix {
     public String longestCommonPrefix(String[] strs) {
-        if (strs.length == 1) {
-            return strs[0];
+        if (strs == null || strs.length == 0) {
+            return "";
         }
-        int commonIdx = 0;
-        String checkStr = strs[0];
-        boolean isCommon = true;
-        while (commonIdx < checkStr.length() && isCommon) {
-            for (int i = 1; i < strs.length; i++) {
-                char currChar = checkStr.charAt(commonIdx);
-                if (commonIdx >= strs[i].length() || strs[i].charAt(commonIdx) != currChar) {
-                    isCommon = false;
-                    break;
+        for (int i = 0; i < strs[0].length(); i++) {
+            char c = strs[0].charAt(i);
+            for (int j = 1; j < strs.length; j++) {
+                if (i == strs[j].length() || c != strs[j].charAt(i)) {
+                    return strs[0].substring(0, i);
                 }
             }
-            if (isCommon) {
-                commonIdx++;
-            }
         }
-        return checkStr.substring(0, commonIdx);
+        return strs[0];
     }
 
     public static void main(String[] args) {
