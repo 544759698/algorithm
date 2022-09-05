@@ -6,8 +6,7 @@ package com.yang.practice.hot100.qa19removelastn;
  */
 public class RemoveLastN {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode pre = new ListNode(-1);
-        pre.next = head;
+        ListNode pre = new ListNode(-1, head);
         ListNode dump = pre;
         int idx = 0;
         while (head != null) {
