@@ -8,12 +8,20 @@ import java.util.HashSet;
  */
 public class OnceNum {
     public int singleNumber(int[] nums) {
+        int ans = 0;
+        for (int i = 0; i < nums.length; i++) {
+            ans = ans ^ nums[i];
+        }
+        return ans;
+    }
+
+    public int singleNumber1(int[] nums) {
         HashSet<Integer> appeared = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             if (!appeared.add(nums[i])) {
                 appeared.remove(nums[i]);
             }
         }
-        return (int)appeared.toArray()[0];
+        return (int) appeared.toArray()[0];
     }
 }
