@@ -10,6 +10,16 @@ import java.util.Stack;
 public class IntersectionList {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode pa = headA;
+        ListNode pb = headB;
+        while (pa != pb) {
+            pa = pa == null ? headB : pa.next;
+            pb = pb == null ? headA : pb.next;
+        }
+        return pa;
+    }
+
+    public ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
         HashSet<ListNode> appeared = new HashSet<>();
         while (headA != null) {
             appeared.add(headA);
