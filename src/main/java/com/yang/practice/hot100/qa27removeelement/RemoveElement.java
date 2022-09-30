@@ -16,29 +16,5 @@ public class RemoveElement {
         }
         return slow;
     }
-
-    public int removeElement1(int[] nums, int val) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-        int left = 0;
-        int right = nums.length - 1;
-        while (left < right) {
-            if (nums[left] == val) {
-                while (nums[right] == val && right > left) {
-                    right--;
-                }
-                if (nums[right] != val) {
-                    int tmp = nums[left];
-                    nums[left] = nums[right];
-                    nums[right] = tmp;
-                    left++;
-                    right--;
-                }
-            } else {
-                left++;
-            }
-        }
-        return nums[left] == val ? left : left + 1;
-    }
+    
 }
