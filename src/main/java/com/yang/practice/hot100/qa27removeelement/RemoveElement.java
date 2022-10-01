@@ -16,5 +16,5 @@ public class RemoveElement {
         }
         return slow;
     }
-    
+
 }
