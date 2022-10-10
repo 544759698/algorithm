@@ -1,6 +1,8 @@
 package com.yang.practice.tiger.qa4firstone;
 
 /**
+ * 二分法
+ *
  * @Author: yangguojun01
  * @Date: 2021/12/23
  */
