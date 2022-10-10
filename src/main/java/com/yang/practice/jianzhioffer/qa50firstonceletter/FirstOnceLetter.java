@@ -8,19 +8,19 @@ import java.util.Map;
 
 /**
  * TODO 需要练习
+ *
  * @Author: yangguojun01
  * @Date: 2022/4/10
  */
 public class FirstOnceLetter {
 
     public char firstUniqChar(String s) {
-        Map<Character, Integer> map = new HashMap<>();
+        HashMap<Character, Boolean> map = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
-            Character curr = s.charAt(i);
-            map.put(curr, map.getOrDefault(curr, 0) + 1);
+            map.put(s.charAt(i), map.containsKey(s.charAt(i)));
         }
         for (int i = 0; i < s.length(); i++) {
-            if (map.get(s.charAt(i)) == 1) {
+            if (!map.get(s.charAt(i))) {
                 return s.charAt(i);
             }
         }
