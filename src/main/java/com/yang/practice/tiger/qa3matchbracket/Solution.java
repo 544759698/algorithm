@@ -1,5 +1,6 @@
 package com.yang.practice.tiger.qa3matchbracket;
 
+import java.util.HashMap;
 import java.util.Stack;
 
 /**
@@ -31,6 +32,24 @@ public class Solution {
             }
         }
         return stack.size() == 0;
+    }
+
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        HashMap<Character, Character> map = new HashMap<>();
+        map.put('(', ')');
+        map.put('[', ']');
+        map.put('{', '}');
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{') {
+                stack.push(map.get(s.charAt(i)));
+            } else {
+                if (stack.isEmpty() || stack.pop() != s.charAt(i)) {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 
     public static void main(String[] args) {
