@@ -2,6 +2,7 @@ package com.yang.practice.tiger.qa4firstone;
 
 /**
  * 二分法
+ * https://leetcode.cn/problems/binary-search/
  *
  * @Author: yangguojun01
  * @Date: 2021/12/23
