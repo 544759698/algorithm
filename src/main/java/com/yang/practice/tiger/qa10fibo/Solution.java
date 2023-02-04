@@ -39,6 +39,25 @@ public class Solution {
         return memo[n];
     }
 
+    public int fib(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        if (n == 2) {
+            return 1;
+        }
+        int i = 3;
+        int first = 1;
+        int second = 2;
+        while (i < n) {
+            int tmp = second;
+            second = (first + second) % 1000000007;
+            first = tmp;
+            i++;
+        }
+        return second;
+    }
+
     public static void main(String[] args) {
         Solution s1 = new Solution();
         System.out.println(s1.f1(11));
