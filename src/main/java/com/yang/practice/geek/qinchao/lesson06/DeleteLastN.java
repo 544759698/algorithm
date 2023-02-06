@@ -2,6 +2,7 @@ package com.yang.practice.geek.qinchao.lesson06;
 
 /**
  * leetcode19 删除倒数第N个节点
+ * https://leetcode.cn/problems/remove-nth-node-from-end-of-list/
  * TODO 待复习，注意实现细节
  *
  * @Author: yangguojun01
