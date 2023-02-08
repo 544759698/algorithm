@@ -2,6 +2,7 @@ package com.yang.practice.geek.qinchao.lesson06;
 
 /**
  * leetcode876 求链表的中间结点
+ * https://leetcode.cn/problems/middle-of-the-linked-list/
  * 偶数个节点时返回中间一对后面的节点
  *
  * @Author: yangguojun01
