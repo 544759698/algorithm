@@ -4,6 +4,7 @@ import java.util.Stack;
 
 /**
  * leetcode 232 225 用栈实现队列
+ * https://leetcode.cn/problems/implement-queue-using-stacks/
  *
  * @Author: yangguojun01
  * @Date: 2021/12/28
