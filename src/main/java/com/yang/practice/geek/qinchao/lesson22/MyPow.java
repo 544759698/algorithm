@@ -2,6 +2,7 @@ package com.yang.practice.geek.qinchao.lesson22;
 
 /**
  * leetcode50 求x的n次方 pow(x,n)
+ * https://leetcode.cn/problems/powx-n/description/
  *
  * @Author: yangguojun01
  * @Date: 2022/1/3
