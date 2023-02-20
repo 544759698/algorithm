@@ -34,8 +34,8 @@ public class SellStockN {
         for (int i = 1; i < prices.length; i++) {
             if (prices[i] < minPrice) {
                 minPrice = prices[i];
-            } else if (prices[i] - minPrice > maxProfit) {
-                maxProfit = prices[i] - minPrice;
+            } else {
+                maxProfit = Math.max(maxProfit, prices[i] - minPrice);
             }
         }
         return maxProfit;
