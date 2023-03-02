@@ -3,6 +3,8 @@ package com.yang.practice.jianzhioffer.qa03repeatnum;
 import java.util.HashSet;
 
 /**
+ * https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/
+ *
  * @Author: yangguojun01
  * @Date: 2022/2/7
  */
