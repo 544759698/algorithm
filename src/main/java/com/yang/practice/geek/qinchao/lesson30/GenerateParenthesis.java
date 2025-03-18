@@ -70,7 +70,7 @@ public class GenerateParenthesis {
 
     public static void main(String[] args) {
         GenerateParenthesis g = new GenerateParenthesis();
-        List<String> ret = g.generateParenthesis(2);
+        List<String> ret = g.generateParenthesis(5);
         System.out.println(ret);
         System.out.println(ret.size());
     }
